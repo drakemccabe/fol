@@ -1,7 +1,9 @@
 require 'spec_helper'
 
 describe Api::V1::UsersController do
-  before(:each) { request.headers['Accept'] = "application/vnd.fol.v1" }
+  before(:each) { request.headers['Accept'] =
+    "application/vnd.marketplace.v1, #{Mime::JSON}" }
+  before(:each) { request.headers['Content-Type'] = Mime::JSON.to_s }
 
     describe "GET #show" do
       before(:each) do
@@ -61,7 +63,8 @@ describe Api::V1::UsersController do
        before(:each) do
          @user = FactoryGirl.create :user
          patch :update, { id: @user.id,
-                          user: { email: "newmail@example.com" } }, format: :json
+                          user: { email: "newmail@example.com" } },
+                          format: :json
        end
 
        it "renders the json representation for the updated user" do
