@@ -1,7 +1,62 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+require "faker"
+
+1000.times do
+  Contact.create(first_name: Faker::Name.first_name,
+                 last_name: Faker::Name.last_name,
+                 address: Faker::Address.street_address,
+                 city: Faker::Address.city,
+                 state: Faker::Address.state_abbr,
+                 zip: Faker::Address.zip,
+                 phone: "5084685051",
+                 email: Faker::Internet.email,
+                 is_business: [true, false].sample,
+                 is_family: [true, false].sample,
+                 is_resident: [true, false].sample)
+
+  contact_id = Contact.all.last.id
+
+  (0..10).to_a.sample.times do
+    Correspondence.create(note: Faker::Lorem.paragraph,
+                          contact_id: contact_id)
+  end
+
+  (0..10).to_a.sample.times do
+    Donation.create(amount: Faker::Commerce.price,
+                    date_filed: Faker::Date.backward(200),
+                    contact_id: contact_id)
+  end
+
+  (0..10).to_a.sample.times do
+    Interest.create(interest: ["cultural events", "book clubs",
+                    "jazz performances", "workshops"].sample,
+                    contact_id: contact_id)
+  end
+
+  date = Contact.find(contact_id).donations.last.try(:date_filed)
+  expire = date + 365 unless date.nil?
+
+  Membership.create(status: [true, false].sample,
+                lifetime: [true, false].sample,
+                expiration_date: expire,
+                contact_id: contact_id)
+
+  print "."
+end
+
+100.times do
+
+  Article.create(title: Faker::Lorem.sentence,
+                 category: ["fundraising", "charity", "media"].sample,
+                 author: Faker::Name.name,
+                 body: Faker::Lorem.paragraph(2, false, 4),
+                 image_url: "http://drakemccabe.com/assets/img/write1.jpg",
+                 created_at: Faker::Date.backward(365))
+
+  Event.create(name: Faker::Lorem.sentence,
+               location: Faker::Address.street_address,
+               description: Faker::Lorem.paragraph(1),
+               image_url: "http://drakemccabe.com/assets/img/write1.jpg",
+               event_date: Faker::Date.forward(365))
+
+  print "."
+end
