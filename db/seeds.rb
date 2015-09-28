@@ -22,13 +22,12 @@ require "faker"
 
   (0..10).to_a.sample.times do
     Donation.create(amount: Faker::Commerce.price,
-                    date_filed: Faker::Date.backward(200),
+                    created_at: Faker::Date.backward(200),
                     contact_id: contact_id)
   end
 
   (0..10).to_a.sample.times do
-    Interest.create(interest: ["cultural events", "book clubs",
-                    "jazz performances", "workshops"].sample,
+    Interest.create(interest: Interest::INTERESTS.sample,
                     contact_id: contact_id)
   end
 
