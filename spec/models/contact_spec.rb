@@ -18,8 +18,14 @@ describe Contact do
 
   it { should validate_uniqueness_of(:address) }
 
-  it { should_have_many(:memberships) }
-  it { should_have_many(:interests) }
-  it { should_have_many(:donations) }
-  it { should_have_many(:correspondences) }
+  it "should have many associations" do
+    t = Contact.reflect_on_association(:interests)
+    t.macro.should == :has_many
+
+    t = Contact.reflect_on_association(:correspondences)
+    t.macro.should == :has_many
+
+    t = Contact.reflect_on_association(:donations)
+    t.macro.should == :has_many
+  end
 end
