@@ -3,7 +3,7 @@ FactoryGirl.define do
     name { Faker::Lorem.sentence }
     location { Faker::Address.street_address }
     description { Faker::Lorem.paragraph(1) }
-    image_url "http://drakemccabe.com/assets/img/write1.jpg"
+    image_url { Faker::Avatar.image }
     event_date { Faker::Date.forward(365) }
   end
 end
