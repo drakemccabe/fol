@@ -29,3 +29,20 @@ describe Contact do
     t.macro.should == :has_many
   end
 end
+
+describe Contact do
+  before { @contact = FactoryGirl.build(:contact) }
+  subject { @contact }
+
+  describe "contact associations" do
+
+    before do
+      @contact.save
+      3.times { FactoryGirl.create :donation, contact: @contact }
+    end
+
+    it "won't self destruct with associated data" do
+      lambda { @contact.destroy }.should raise_error(ActiveRecord::InvalidForeignKey)
+    end
+  end
+end

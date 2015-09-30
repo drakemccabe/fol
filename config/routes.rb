@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  mount SabisuRails::Engine => "/sabisu_rails"
+  # mount SabisuRails::Engine => "/sabisu_rails"
   devise_for :users
 
   namespace :api, defaults: { format: :json },
@@ -8,7 +8,8 @@ Rails.application.routes.draw do
       constraints: ApiConstraints.new(version: 1, default: true) do
      # We are going to list our resources here
      resources :users, only: [:show, :create, :update, :destroy]
-     resources :sessions, :only => [:create, :destroy]
+     resources :sessions, only: [:create, :destroy]
+     resources :donations, only: [:show, :index]
    end
  end
 end
