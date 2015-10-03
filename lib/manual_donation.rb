@@ -1,0 +1,2 @@
+class ManualDonation < NewDonation
+end

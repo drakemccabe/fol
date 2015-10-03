@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.order(:created_at).limit(4)
+    @articles = Article.order(:created_at)
   end
 
   def show
@@ -9,16 +9,5 @@ class ArticlesController < ApplicationController
 
   def new
     @article = Article.new
-  end
-
-  def create
-    @article = Article.new(article_params)
-    if @article.save
-      flash[:notice] = 'New Blog Entry Created!'
-      redirect_to @article
-    else
-      flash[:errors] = @article.errors.full_messages.join(". ")
-      render :new
-    end
   end
 end
