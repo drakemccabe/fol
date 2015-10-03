@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'articles#index'
   devise_for :users
   resources :articles, only: [:index, :show]
+  resources :events, only: [:index, :show]
+  resources :payments, only: [:index, :create]
 
   namespace :api, defaults: { format: :json },
                              constraints: { subdomain: 'api' }, path: '/'  do
