@@ -70,7 +70,9 @@ class NewDonation
                                   state: address.first.components.state_abbreviation,
                                   zip: address.first.components.to_hash[:zipcode],
                                   first_name: @customer.sources.data.first.name,
-                                  email: @customer.email)
+                                  email: @customer.email,
+                                  longitude: address.first.metadata.to_hash[:longitude],
+                                  latitude: address.first.metadata.to_hash[:latitude])
         if new_contact.save
           Donation.create(amount: @amount,
                           contact_id: new_contact.id,

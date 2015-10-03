@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151003142818) do
+ActiveRecord::Schema.define(version: 20151003200925) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,6 +38,8 @@ ActiveRecord::Schema.define(version: 20151003142818) do
     t.boolean "is_business"
     t.boolean "is_family"
     t.boolean "is_resident"
+    t.decimal "longitude",               precision: 10, scale: 6
+    t.decimal "latitude",                precision: 10, scale: 6
   end
 
   create_table "correspondences", force: :cascade do |t|
