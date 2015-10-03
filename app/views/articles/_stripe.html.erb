@@ -1,7 +1,7 @@
-<form action="/charge" method="POST">
+<form action="/payments" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
     data-image="/img/documentation/checkout/marketplace.png"
     data-name="Stripe.com"
     data-description="2 widgets"
@@ -10,4 +10,5 @@
     data-billing-address="true"
     data-label="<%= label %>">
   </script>
+  <input type="hidden" name="amount" value="<%= amount %>">
 </form>
