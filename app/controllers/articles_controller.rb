@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
   def index
-    @articles = Article.all
+    @articles = Article.order(:created_at).limit(4)
   end
 
   def show

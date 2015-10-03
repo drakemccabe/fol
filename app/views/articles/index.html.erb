@@ -1,0 +1,16 @@
+
+<%= render "stripe", amount: "500", label: "Supporter: $5" %>
+<%= render "stripe", amount: "1000", label: "Patron: $10" %>
+<%= render "stripe", amount: "2000", label: "Friend: $20" %>
+
+<h1> Hello World </h1>
+
+<ul>
+<% @articles.each do |article| %>
+    <li> <%= article.title %> </li>
+    <li> <%= article.category %> </li>
+    <li> <%= article.author %> </li>
+    <li> <%= article.body %> </li>
+    <img src="<%= article.image_url %>">
+    <% end %>
+  </ul>

@@ -1,0 +1,2 @@
+/Users/dmccabe/.rubies/ruby-2.0.0-p576/bin/ruby extconf.rb
+/Users/dmccabe/.rubies/ruby-2.0.0-p576/bin/ruby: invalid switch in RUBYOPT: -S (RuntimeError)

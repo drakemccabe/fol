@@ -9,11 +9,11 @@ gem 'jquery-rails'
 gem 'active_model_serializers'
 gem 'devise'
 gem 'sdoc', '~> 0.4.0', group: :doc
-#gem 'sabisu_rails'
 gem 'compass-rails'
 gem 'furatto'
 gem 'font-awesome-rails'
 gem 'simple_form'
+gem 'stripe'
 
 group :development, :test do
   gem 'pry'

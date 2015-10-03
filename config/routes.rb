@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  # mount SabisuRails::Engine => "/sabisu_rails"
+  root 'articles#index'
   devise_for :users
+  resources :articles, only: [:index, :show]
 
   namespace :api, defaults: { format: :json },
                              constraints: { subdomain: 'api' }, path: '/'  do
