@@ -5,12 +5,8 @@
 
 <h1> Hello World </h1>
 
-<ul>
+<ul class="article-box">
 <% @articles.each do |article| %>
-    <li> <%= article.title %> </li>
-    <li> <%= article.category %> </li>
-    <li> <%= article.author %> </li>
-    <li> <%= article.body %> </li>
-    <img src="<%= article.image_url %>">
+    <li id="blogpost-<%= article.id %>"> <%= article.title %> </li>
     <% end %>
   </ul>

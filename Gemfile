@@ -31,4 +31,8 @@ group :test do
   gem "factory_girl_rails"
   gem 'faker'
   gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem 'orderly'
 end
