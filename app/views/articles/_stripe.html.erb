@@ -1,14 +1,15 @@
-<form action="/payments" method="POST">
+<form action="/payments" method="POST" class="form-inline">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
-    data-image="/img/documentation/checkout/marketplace.png"
-    data-name="Stripe.com"
-    data-description="2 widgets"
+    data-image="http://www.wblibraryfriends.org/wp-content/uploads/2015/06/fol.png"
+    data-name="Friends of the Library"
+    data-description="West Bridgewater, MA"
     data-amount="<%= amount %>"
     data-locale="auto"
     data-billing-address="true"
     data-label="<%= label %>">
   </script>
+  <label> <%= name %> </label>
   <input type="hidden" name="amount" value="<%= amount %>">
 </form>

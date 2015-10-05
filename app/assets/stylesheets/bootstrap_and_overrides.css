@@ -1,0 +1,270 @@
+/*
+  =require twitter-bootstrap-static/bootstrap
+
+  Use Font Awesome icons (default)
+  To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
+  =require twitter-bootstrap-static/fontawesome
+  */
+
+.stripe-button-el {
+  color: white;
+}
+
+.mission-photo {
+  border: 10px solid white;
+}
+
+.forms-in-group form {
+  display: inline;
+}
+
+  .brand-img {
+      height: 45px;
+  }
+
+  body {
+      background-color: #5CB9C8;
+      color: #343434;
+      font-family: 'Lato';
+
+  }
+
+  h2 {
+      color: #FFF;
+      font-family: 'Josefin Sans', sans-serif;
+  }
+
+  h1 {
+      color: #FFF;
+      font-family: 'Josefin Sans', sans-serif;
+  }
+
+  #navbarlinks a {
+       color: #55318D;
+  }
+
+
+  #promo-1 {
+      padding-top: 50px;
+      padding-bottom: 25px;
+  }
+
+  .content-block {
+      padding-top: 50px;
+      padding-bottom: 50px;
+  }
+
+  #fbicon {
+      color: white;
+      display: inline;
+  }
+
+  .event {
+      width: 38%;
+      height: 100px;
+      margin: 20px;
+      background: url("http://www.wblibraryfriends.org/wp-content/uploads/2015/10/book-bookmark-icon.png") center;
+      background-size: contain;
+      padding-left: 20px;
+      padding-top: 28px;
+      text-align: center;
+      color: white;
+      font-family: 'Josefin Sans', sans-serif;
+      font-size: 130%;
+      display: inline-block;
+      background-repeat: no-repeat;
+  }
+
+  .eventdesc {
+      width: 60%;
+      height: 100px;
+      display: inline;
+  }
+
+  .eventdesc h5 {
+      color: white;
+      display: inline;
+      font-size: 110%;
+      word-wrap: break-word;
+      overflow: hidden;
+  }
+
+  .promo-1 {
+  	 background: url("http://www.wblibraryfriends.org/wp-content/uploads/2015/10/g310.png") no-repeat;
+  	/* -webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover; */
+  	padding: 140px 0;
+      background-color: #5CB9C8;
+      background-position: 102% 10%;
+      background-size: 60%;
+      height: 500px;
+  }
+
+  .navbar {
+  }
+
+
+  .promo-1 .video-wrapper {
+  	max-width: 600px;
+  	margin: 20px auto 0 auto;
+  }
+
+  #blogtitle {
+      text-align: right;
+      padding-right: 100px;
+      background-color: #5CB9C8;
+      padding-bottom: 10px;
+  }
+
+  .shelf {
+      background: url("http://www.wblibraryfriends.org/wp-content/uploads/2015/10/shelf.png") no-repeat;
+      height: 300px;
+      width: 100%;
+  }
+
+  .intro {
+      padding-top: 50px;
+  }
+
+
+  #content2-9 {
+
+  }
+
+
+  /*	CONTENT BLOCK 2-9
+  /*----------------------------------------------------*/
+
+  .content-2-9 {
+  	background: #ccc;
+  	min-height: 260px;
+  	position: relative;
+  }
+
+  .content-2-9 .project {
+  	height: 260px;
+  	overflow: hidden;
+  	position: relative;
+  	padding: 0;
+  }
+
+  .content-2-9 .project img {
+  	width: 100%;
+  	position: absolute;
+  	left: 50%;
+  	top: 50%;
+  	-webkit-transform: translateY(-50%) translateX(-50%);
+      -moz-transform: translateY(-50%) translateX(-50%);
+      transform: translateY(-50%) translateX(-50%);
+  }
+
+  .content-2-9 .project .background-image-holder {
+  	position: absolute;
+  	top: 0px;
+  	left: 0px;
+  	width: 100%;
+  	height: 100%;
+  	background-size: cover !important;
+  	z-index: 0;
+  	background-position: 50% 50% !important;
+  }
+
+
+  .content-2-9 .project .hover-state {
+  	position: absolute;
+  	width: 100%;
+  	height: 100%;
+  	top: 0px;
+  	background-color: rgba(44, 62, 80, 0.6);
+  	text-align: center;
+  	-webkit-transition: all .5s ease;
+  	-moz-transition: all .5s ease;
+  	transition: all .5s ease;
+  	opacity: 0;
+  	padding: 0 25px;
+  }
+
+  .content-2-9 .project:hover .hover-state {
+  	opacity: 1;
+  }
+
+  .content-2-9 .project .hover-state h3 {
+  	color: #fff;
+  	margin-top: 40px;
+  	margin-bottom: 8px;
+  }
+
+  .content-2-9 .project .hover-state p {
+  	color: #fff;
+  }
+
+  .content-2-9 .project .hover-state .align-vertical {
+  	-webkit-transform: translate3d(0, 20px, 0);
+  	-moz-transform: translate3d(0, 20px, 0);
+  	transform: translate3d(0, 20px, 0);
+  	-webkit-transition: all .5s ease;
+  	-moz-transition: all .5s ease;
+  	transition: all .5s ease;
+  	opacity: 0;
+  }
+
+  .content-2-9 .project:hover .align-vertical {
+  	-webkit-transform: translate3d(0, 0px, 0);
+  	-moz-transform: translate3d(0, 0px, 0);
+  	transform: translate3d(0, 0px, 0);
+  	opacity: 1;
+  }
+
+
+  /*	CONTENT BLOCK 2-9 MEDIA QUERIES
+  /*----------------------------------------------------*/
+
+  /* Small Devices, Tablets */
+  @media only screen and (min-width : 768px) {
+
+  	.content-2-9 {
+  		min-height: 520px;
+  	}
+
+  }
+
+  /* Medium Devices, Desktops */
+  @media only screen and (min-width : 992px) {
+
+  	.content-2-9 {
+  		min-height: 260px;
+  	}
+  }
+
+  /* Large Devices, Wide Screens */
+  @media only screen and (min-width : 1200px) {
+  }
+
+  .contact-info li {
+      display: inline-block;
+      list-style: none;
+      padding-left: 20px;
+      padding-right: 20px;
+  }
+
+  .contact-info {
+      text-align: center;
+      padding-bottom: 10px;
+  }
+
+  .contact-1 {
+      margin-top: 50px;
+  }
+
+  .contact-title {
+      padding: 20px;
+  }
+
+  #bottom-shelf {
+      background: url("http://www.wblibraryfriends.org/wp-content/uploads/2015/10/path14.png") no-repeat;
+      height: 400px;
+      width: 400px;
+      background-position: 102% 10%;
+  }

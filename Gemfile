@@ -15,6 +15,7 @@ gem 'font-awesome-rails'
 gem 'simple_form'
 gem 'stripe'
 gem 'smartystreets'
+gem "twitter-bootstrap-rails"
 
 group :development, :test do
   gem 'pry'
