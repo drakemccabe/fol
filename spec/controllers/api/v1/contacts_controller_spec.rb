@@ -4,6 +4,7 @@ describe Api::V1::ContactsController do
   describe "GET #show" do
     before(:each) do
       @contact = FactoryGirl.create :contact
+      user = FactoryGirl.create :user
       api_authorization_header user.auth_token
       get :show, id: @contact.id
     end
@@ -19,6 +20,7 @@ describe Api::V1::ContactsController do
   describe "GET #index" do
     before(:each) do
       4.times { FactoryGirl.create :contact }
+      user = FactoryGirl.create :user
       api_authorization_header user.auth_token
       get :index
     end
@@ -35,6 +37,7 @@ describe Api::V1::ContactsController do
     context "when contact is successfully made" do
       before(:each) do
         @contact_attributes = FactoryGirl.attributes_for :contact
+        user = FactoryGirl.create :user
         api_authorization_header user.auth_token
         post :create, { contact: @contact_attributes }
       end
@@ -50,6 +53,7 @@ describe Api::V1::ContactsController do
     context "when fails to save" do
       before(:each) do
         @invalid_contact_attributes = { state: "Massachusetts" }
+        user = FactoryGirl.create :user
         api_authorization_header user.auth_token
         post :create, { contact: @invalid_contact_attributes }
       end
@@ -61,7 +65,7 @@ describe Api::V1::ContactsController do
 
       it "returns error messages" do
         contact_response = json_response
-        expect(contact_response[:errors][:state]).to include "is not a number"
+        expect(contact_response[:errors][:state]).to include "is the wrong length (should be 2 characters)"
       end
 
       it { should respond_with 422 }
