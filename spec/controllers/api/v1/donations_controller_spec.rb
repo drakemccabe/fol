@@ -63,7 +63,6 @@ describe Api::V1::DonationsController do
 
       it "returns full text error messages in JSON" do
         donation_response = json_response
-        binding.pry
         expect(donation_response[:errors][:amount]).to include "must be greater than 0.0"
       end
 
