@@ -34,9 +34,10 @@ describe Api::V1::DonationsController do
     context "when a new donation is created" do
       before(:each) do
         user = FactoryGirl.create :user
+        contact = FactoryGirl.create :contact
         @donation_attributes = FactoryGirl.attributes_for :donation
         api_authorization_header user.auth_token
-        post :create, { user_id: user.id, donation: @donation_attributes }
+        post :create, { user_id: user.id, donation: @donation_attributes, contact_id: contact.id }
       end
 
       it "returns the donation just created in json" do
@@ -47,7 +48,7 @@ describe Api::V1::DonationsController do
       it { should respond_with 201 }
     end
 
-    context "when a new donaiton is NOT created" do
+    context "when a new donation is NOT created" do
       before(:each) do
         user = FactoryGirl.create :user
         @bad_donation_attributes = { amount: 0, contact_id: 0 }
@@ -62,7 +63,8 @@ describe Api::V1::DonationsController do
 
       it "returns full text error messages in JSON" do
         donation_response = json_response
-        expect(donation_response[:errors][:price]).to include "amount must be greater than 0"
+        binding.pry
+        expect(donation_response[:errors][:amount]).to include "must be greater than 0.0"
       end
 
       it { should respond_with 422 }
