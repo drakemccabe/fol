@@ -58,7 +58,7 @@ describe Api::V1::ContactsController do
         post :create, { contact: @invalid_contact_attributes }
       end
 
-      it "renders an errors json" do
+      it "renders errors in json response" do
         contact_response = json_response
         expect(contact_response).to have_key(:errors)
       end
@@ -70,5 +70,57 @@ describe Api::V1::ContactsController do
 
       it { should respond_with 422 }
     end
+  end
+
+  describe "PUT/PATCH #update" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @contact = FactoryGirl.create :contact
+      api_authorization_header @user.auth_token
+    end
+
+    context "when is successfully updated" do
+      before(:each) do
+        patch :update, { id: @contact.id,
+            contact: { first_name: "Bob" } }
+      end
+
+      it "renders the json representation for the updated user" do
+        contact_response = json_response
+        expect(contact_response[:first_name]).to eql "Bob"
+      end
+
+      it { should respond_with 200 }
+    end
+
+    context "when it fails updated" do
+      before(:each) do
+        patch :update, { id: @contact.id,
+              contact: { state: "Massachusetts" } }
+      end
+
+      it "renders errors in json" do
+        contact_response = json_response
+        expect(contact_response).to have_key(:errors)
+      end
+
+      it "tells you why it did not save" do
+        contact_response = json_response
+        expect(contact_response[:errors][:state]).to include "is the wrong length (should be 2 characters)"
+      end
+
+      it { should respond_with 422 }
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @contact = FactoryGirl.create :contact
+      api_authorization_header @user.auth_token
+      delete :destroy, { id: @contact.id }
+    end
+
+    it { should respond_with 204 }
   end
 end

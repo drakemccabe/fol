@@ -1,4 +1,5 @@
 class Api::V1::ContactsController < ApplicationController
+  before_action :authenticate_with_token!
   respond_to :json
 
   def show
@@ -16,6 +17,21 @@ class Api::V1::ContactsController < ApplicationController
     else
       render json: { errors: contact.errors }, status: 422
     end
+  end
+
+  def update
+    contact = Contact.find(params[:id])
+    if contact.update(contact_params)
+      render json: contact, status: 200, location: [:api, contact]
+    else
+      render json: { errors: contact.errors }, status: 422
+    end
+  end
+
+  def destroy
+    contact = Contact.find(params[:id])
+    contact.destroy
+    head 204
   end
 
   private
