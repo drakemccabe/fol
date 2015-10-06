@@ -5,8 +5,23 @@ class Api::V1::InterestsController < ApplicationController
   def show
     respond_with Interest.find(params[:id])
   end
-  
+
   def index
    respond_with Interest.all
   end
+
+  def create
+    interest = Interest.new(interest_params)
+    if interest.save
+      render json: interest, status: 201, location: [:api, interest]
+    else
+      render json: { errors: interest.errors }, status: 422
+    end
+  end
+
+  private
+
+    def interest_params
+      params.require(:interest).permit(:interest, :contact_id)
+    end
 end
