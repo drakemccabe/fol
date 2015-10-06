@@ -19,6 +19,15 @@ class Api::V1::EventsController < ApplicationController
     end
   end
 
+  def update
+    event = Event.find(params[:id])
+    if event.update(product_params)
+      render json: event, status: 200, location: [:api, event]
+    else
+      render json: { errors: event.errors }, status: 422
+    end
+  end
+
   private
 
   def product_params
