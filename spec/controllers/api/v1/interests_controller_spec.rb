@@ -53,7 +53,7 @@ describe Api::V1::InterestsController do
     context "when interest fails to save" do
       before(:each) do
         user = FactoryGirl.create :user
-        @invalid_interest_attributes = { interest: "two" * 100 }
+        @invalid_interest_attributes = { interest: "waterslides" }
         api_authorization_header user.auth_token
         post :create, { interest: @invalid_interest_attributes }
       end
@@ -65,7 +65,48 @@ describe Api::V1::InterestsController do
 
       it "returns full error messages" do
         interest_response = json_response
-        expect(interest_response[:errors][:interest]).to include "is too long (maximum is 200 characters"
+        expect(interest_response[:errors][:interest]).to include "is not included in the list"
+      end
+
+      it { should respond_with 422 }
+    end
+  end
+
+  describe "PUT/PATCH #update" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @interest = FactoryGirl.create :interest
+      api_authorization_header @user.auth_token
+    end
+
+    context "when interest is successfully created" do
+      before(:each) do
+        patch :update, { id: @interest.id,
+              interest: { interest: "cultural events" } }
+      end
+
+      it "it returns the created interest" do
+        interest_response = json_response
+        expect(interest_response[:interest]).to eql "cultural events"
+      end
+
+      it { should respond_with 200 }
+    end
+
+    context "when an interest fails to update" do
+      before(:each) do
+        patch :update, { id: @interest.id,
+              interest: { interest: "skydiving" } }
+      end
+
+      it "returns errors" do
+        interest_response = json_response
+        expect(interest_response).to have_key(:errors)
+      end
+
+      it "returns full error messages" do
+        interest_response = json_response
+        expect(interest_response[:errors][:interest]).to include "is not included in the list"
       end
 
       it { should respond_with 422 }

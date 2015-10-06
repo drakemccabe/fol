@@ -19,6 +19,15 @@ class Api::V1::InterestsController < ApplicationController
     end
   end
 
+  def update
+    interest = Interest.find(params[:id])
+    if interest.update(interest_params)
+      render json: interest, status: 200, location: [:api, interest]
+    else
+      render json: { errors: interest.errors }, status: 422
+    end
+  end
+
   private
 
     def interest_params
