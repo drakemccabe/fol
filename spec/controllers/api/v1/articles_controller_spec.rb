@@ -27,7 +27,7 @@ describe Api::V1::ArticlesController do
 
       it "returns 4 records from the database" do
         article_response = json_response
-        expect(article_response[:articles]).to have(4).items
+        expect(article_response[:articles].size).to eq(4)
       end
 
       it { should respond_with 200 }

@@ -24,7 +24,7 @@ describe Api::V1::DonationsController do
 
     it "returns 20 records from the donations table" do
       donations_response = json_response
-      expect(donations_response[:donations]).to have(20).items
+      expect(donations_response[:donations].size).to eq(20)
     end
 
     it { should respond_with 200 }

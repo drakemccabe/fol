@@ -27,7 +27,7 @@ describe Api::V1::ContactsController do
 
     it "returns 4 contacts from the database" do
       contact_response = json_response
-      expect(contact_response[:contacts]).to have(4).items
+      expect(contact_response[:contacts].size).to eq(4)
     end
 
     it { should respond_with 200 }
