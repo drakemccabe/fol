@@ -3,7 +3,7 @@ require 'spec_helper'
 feature 'user visits main page', %{
   As a vistor instrested in the organization,
   I want to view a list of articles
-  So that I can select a Yelper to review
+  So that I can read about the organization.
 } do
   # Acceptance Criteria
   # [] When a user visits the main page, they should see 4 or less articles
