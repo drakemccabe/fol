@@ -11,7 +11,7 @@ class Api::V1::EventsController < ApplicationController
   end
 
   def create
-    event = Event.new(product_params)
+    event = Event.new(event_params)
     if event.save
       render json: event, status: 201, location: [:api, event]
     else
@@ -21,7 +21,7 @@ class Api::V1::EventsController < ApplicationController
 
   def update
     event = Event.find(params[:id])
-    if event.update(product_params)
+    if event.update(event_params)
       render json: event, status: 200, location: [:api, event]
     else
       render json: { errors: event.errors }, status: 422
@@ -36,7 +36,7 @@ class Api::V1::EventsController < ApplicationController
 
   private
 
-  def product_params
+  def event_params
     params.require(:event).permit(:name,
                                   :location,
                                   :description,
