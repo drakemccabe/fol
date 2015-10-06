@@ -15,11 +15,11 @@ class PaymentsController < ApplicationController
                                    customer: customer.id)
     if charge.paid
       donation = NewDonation.new(customer, params[:amount], charge)
-      donation.add_donation!
+      saved_donation = donation.add_donation!
 
       Payment.create(token: params[:stripeToken],
                      schedule: "false",
-                     donation_id: donation.id,
+                     donation_id: saved_donation.id,
                      customer_id: customer.id)
 
      flash[:message] = "Thanks"
