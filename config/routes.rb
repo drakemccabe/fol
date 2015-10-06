@@ -14,6 +14,7 @@ Rails.application.routes.draw do
      resources :sessions, only: [:create, :destroy]
      resources :donations, only: [:show, :index, :create]
      resources :contacts, only: [:show, :index, :create, :update, :destroy]
+     resources :articles, only: [:show, :index, :create, :update, :destroy]
    end
  end
 end
