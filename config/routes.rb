@@ -16,6 +16,7 @@ Rails.application.routes.draw do
      resources :contacts, only: [:show, :index, :create, :update, :destroy]
      resources :articles, only: [:show, :index, :create, :update, :destroy]
      resources :events, only: [:show, :index, :create, :update, :destroy]
+     resources :interests, only: [:show]
    end
  end
 end
