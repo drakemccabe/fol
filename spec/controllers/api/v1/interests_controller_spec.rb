@@ -112,4 +112,15 @@ describe Api::V1::InterestsController do
       it { should respond_with 422 }
     end
   end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @interest = FactoryGirl.create :interest
+      api_authorization_header @user.auth_token
+      delete :destroy, { id: @interest.id }
+    end
+
+    it { should respond_with 204 }
+  end
 end

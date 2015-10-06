@@ -28,6 +28,12 @@ class Api::V1::InterestsController < ApplicationController
     end
   end
 
+  def destroy
+    interest = Interest.find(params[:id])
+    interest.destroy
+    head 204
+  end
+
   private
 
     def interest_params
