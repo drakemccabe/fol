@@ -71,4 +71,45 @@ describe Api::V1::ArticlesController do
        it { should respond_with 422 }
      end
    end
+
+   describe "PUT/PATCH #update" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @article = FactoryGirl.create :article
+      api_authorization_header @user.auth_token
+    end
+
+    context "when article updates successfully" do
+      before(:each) do
+        patch :update, { id: @article.id,
+              article: { title: "A really awesome title" } }
+      end
+
+      it "returns the updated article object in json" do
+        article_response = json_response
+        expect(article_response[:title]).to eql "A really awesome title"
+      end
+
+      it { should respond_with 200 }
+    end
+
+    context "when article fails to update" do
+      before(:each) do
+        patch :update, { id: @article.id,
+              article: { category: "char" * 300 } }
+      end
+
+      it "returns error messages" do
+        article_response = json_response
+        expect(article_response).to have_key(:errors)
+      end
+
+      it "returns full error messages in json" do
+        article_response = json_response
+        expect(article_response[:errors][:category]).to include "is too long (maximum is 300 characters)"
+      end
+
+      it { should respond_with 422 }
+    end
+  end
 end
