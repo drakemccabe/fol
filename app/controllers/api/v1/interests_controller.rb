@@ -5,4 +5,8 @@ class Api::V1::InterestsController < ApplicationController
   def show
     respond_with Interest.find(params[:id])
   end
+  
+  def index
+   respond_with Interest.all
+  end
 end
