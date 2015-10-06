@@ -9,4 +9,23 @@ class Api::V1::EventsController < ApplicationController
   def index
     respond_with Event.all
   end
+
+  def create
+    event = Event.new(product_params)
+    if event.save
+      render json: event, status: 201, location: [:api, event]
+    else
+      render json: { errors: event.errors }, status: 422
+    end
+  end
+
+  private
+
+  def product_params
+    params.require(:event).permit(:name,
+                                  :location,
+                                  :description,
+                                  :image_url,
+                                  :event_date)
+  end
 end

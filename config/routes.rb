@@ -15,7 +15,7 @@ Rails.application.routes.draw do
      resources :donations, only: [:show, :index, :create]
      resources :contacts, only: [:show, :index, :create, :update, :destroy]
      resources :articles, only: [:show, :index, :create, :update, :destroy]
-     resources :events, only: [:show, :index]
+     resources :events, only: [:show, :index, :create]
    end
  end
 end
