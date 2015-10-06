@@ -112,4 +112,15 @@ describe Api::V1::ArticlesController do
       it { should respond_with 422 }
     end
   end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @article = FactoryGirl.create :article
+      api_authorization_header @user.auth_token
+      delete :destroy, { id: @article.id }
+    end
+
+    it { should respond_with 204 }
+  end
 end
