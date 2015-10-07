@@ -3,6 +3,8 @@ require 'spec_helper'
 describe Api::V1::DonationsController do
   describe "GET #show" do
     before(:each) do
+      user = FactoryGirl.create :user
+      api_authorization_header user.auth_token
       @donation = FactoryGirl.create :donation
       get :show, id: @donation.id
     end
@@ -18,6 +20,8 @@ describe Api::V1::DonationsController do
 
   describe "GET #index" do
     before(:each) do
+      user = FactoryGirl.create :user
+      api_authorization_header user.auth_token
       20.times { FactoryGirl.create :donation }
       get :index
     end
@@ -35,9 +39,10 @@ describe Api::V1::DonationsController do
       before(:each) do
         user = FactoryGirl.create :user
         contact = FactoryGirl.create :contact
-        @donation_attributes = FactoryGirl.attributes_for :donation
         api_authorization_header user.auth_token
-        post :create, { user_id: user.id, donation: @donation_attributes, contact_id: contact.id }
+        @donation_attributes = FactoryGirl.attributes_for :donation
+        @donation_attributes[:contact_id] = contact.id
+        post :create, { donation: @donation_attributes }
       end
 
       it "returns the donation just created in json" do
@@ -53,7 +58,7 @@ describe Api::V1::DonationsController do
         user = FactoryGirl.create :user
         @bad_donation_attributes = { amount: 0, contact_id: 0 }
         api_authorization_header user.auth_token
-        post :create, { user_id: user.id, donation: @bad_donation_attributes }
+        post :create, { donation: @bad_donation_attributes }
       end
 
       it "returns errors in JSON" do
