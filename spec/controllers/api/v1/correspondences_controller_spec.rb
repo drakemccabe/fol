@@ -27,7 +27,7 @@ describe Api::V1::CorrespondencesController do
 
     it "returns 4 correspondences" do
       correspondences_response = json_response
-      expect(correspondences_response[:products].size).to eql(4)
+      expect(correspondences_response[:correspondences].size).to eql(4)
     end
 
     it { should respond_with 200 }
@@ -71,4 +71,57 @@ describe Api::V1::CorrespondencesController do
       it { should respond_with 422 }
     end
   end
+
+  describe "PUT/PATCH #update" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @correspondence = FactoryGirl.create :correspondence
+      api_authorization_header @user.auth_token
+    end
+
+    context "when a correspondence is successfully updated" do
+      before(:each) do
+        patch :update, { id: @correspondence.id,
+              correspondence: { note: "Sent thank you card" } }
+      end
+
+      it "returns json with the updated correspondence" do
+        correspondence_response = json_response
+        expect(correspondence_response[:note]).to eql "Sent thank you card"
+      end
+
+      it { should respond_with 200 }
+    end
+
+    context "when is not updated" do
+      before(:each) do
+        patch :update, { id: @correspondence.id,
+              correspondence: { note: nil } }
+      end
+
+      it "renders errors" do
+        correspondence_response = json_response
+        expect(correspondence_response).to have_key(:errors)
+      end
+
+      it "returns full error messages" do
+        correspondence_response = json_response
+        expect(correspondence_response[:errors][:note]).to include "can't be blank"
+      end
+
+      it { should respond_with 422 }
+    end
+  end
+
+  describe "DELETE #destroy" do
+    before(:each) do
+      @user = FactoryGirl.create :user
+      @correspondence = FactoryGirl.create :correspondence
+      api_authorization_header @user.auth_token
+      delete :destroy, { id: @correspondence.id }
+    end
+
+    it { should respond_with 204 }
+  end
+
 end

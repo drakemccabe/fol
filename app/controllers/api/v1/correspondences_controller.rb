@@ -7,7 +7,7 @@ class Api::V1::CorrespondencesController < ApplicationController
   end
 
   def index
-    respond_with Correspondence.all  
+    respond_with Correspondence.all
   end
 
   def create
@@ -17,6 +17,21 @@ class Api::V1::CorrespondencesController < ApplicationController
     else
       render json: { errors: correspondence.errors }, status: 422
     end
+  end
+
+  def update
+    correspondence = Correspondence.find(params[:id])
+    if correspondence.update(correspondence_params)
+      render json: correspondence, status: 200, location: [:api, correspondence]
+    else
+      render json: { errors: correspondence.errors }, status: 422
+    end
+  end
+
+  def destroy
+    correspondence = Correspondence.find(params[:id])
+    correspondence.destroy
+    head 204
   end
 
 private
