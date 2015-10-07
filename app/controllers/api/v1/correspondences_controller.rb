@@ -6,6 +6,10 @@ class Api::V1::CorrespondencesController < ApplicationController
     respond_with Correspondence.find(params[:id])
   end
 
+  def index
+    respond_with Correspondence.all  
+  end
+
   def create
     correspondence = Correspondence.new(correspondence_params)
     if correspondence.save

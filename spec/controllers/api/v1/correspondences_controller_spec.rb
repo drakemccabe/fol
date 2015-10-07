@@ -17,6 +17,22 @@ describe Api::V1::CorrespondencesController do
     it { should respond_with 200 }
   end
 
+  describe "GET #index" do
+    before(:each) do
+      user = FactoryGirl.create :user
+      api_authorization_header user.auth_token
+      4.times { FactoryGirl.create :correspondence }
+      get :index
+    end
+
+    it "returns 4 correspondences" do
+      correspondences_response = json_response
+      expect(correspondences_response[:products].size).to eql(4)
+    end
+
+    it { should respond_with 200 }
+  end
+
   describe "POST #create" do
     context "when a correspondence is successfully created" do
       before(:each) do
