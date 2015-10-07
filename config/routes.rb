@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   resources :articles, only: [:index, :show]
   resources :events, only: [:index, :show]
   resources :payments, only: [:index, :create]
+  resources :admins, only: [:index, :new, :create, :destroy]
 
   namespace :api, defaults: { format: :json },
                              constraints: { subdomain: 'api' }, path: '/'  do
