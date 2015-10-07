@@ -39,11 +39,16 @@ module Fol
       g.helper = false
    end
 
+    config.react.addons = true
+
    config.autoload_paths += %W(\#{config.root}/lib)
    # load everything in the 'lib' folder
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+
+    config.assets.precompile += %w( *-bundle.js )
+    config.assets.precompile += %w( *-bundle.css )
   end
 end
