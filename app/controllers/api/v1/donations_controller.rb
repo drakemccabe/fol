@@ -1,5 +1,5 @@
 class Api::V1::DonationsController < ApplicationController
-  before_action :authenticate_with_token!, only: [:create]
+  before_action :authenticate_with_token!
   respond_to :json
 
   def show
@@ -11,16 +11,14 @@ class Api::V1::DonationsController < ApplicationController
   end
 
   def create
-    donation = Donation.new(amount: params[:donation][:amount],
-                            contact_id: params[:contact_id],
-                            created_at: params[:donation][:created_at])
+    donation = Donation.new(donation_params)
     if donation.save
       render json: donation, status: 201, location: [:api, donation]
     else
       render json: { errors: donation.errors }, status: 422
     end
   end
-  
+
   private
 
   def donation_params
