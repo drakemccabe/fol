@@ -16,6 +16,7 @@ gem 'simple_form'
 gem 'stripe'
 gem 'smartystreets'
 gem "twitter-bootstrap-rails"
+gem "react-rails"
 
 group :development, :test do
   gem 'pry'
