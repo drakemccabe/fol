@@ -1,5 +1,5 @@
 class Api::V1::ContactsController < ApplicationController
-  before_action :authenticate_with_token!
+  #before_action :authenticate_with_token!
   respond_to :json
 
   def show
@@ -7,7 +7,7 @@ class Api::V1::ContactsController < ApplicationController
   end
 
   def index
-    respond_with Contact.all
+    respond_with Contact.all.limit(50)
   end
 
   def create
