@@ -1,13 +1,8 @@
 var React = require('react');
-var FixedDataTable = require('fixed-data-table');
-
-var Table = FixedDataTable.Table;
-var Column = FixedDataTable.Column;
-
-// Table data as a list of array.
+var Griddle = require('griddle-react');
 var rows = "";
 
-    $.ajax({
+$.ajax({
       url: "//api.fol.dev/contacts",
       dataType: 'json',
       cache: true,
@@ -18,36 +13,16 @@ var rows = "";
 
     function rowsFunction(data) {
       rows = data["contacts"];
-      console.log(rows);
+
       React.render(
-        <Table
-          rowHeight={50}
-          rowGetter={rowGetter}
-          rowsCount={rows.length}
-          width={1000}
-          height={500}
-          headerHeight={50}>
-          <Column
-            label="Col 1"
-            width={300}
-            dataKey="first_name"
-          />
-          <Column
-            label="Col 2"
-            width={300}
-            dataKey="last_name"
-          />
-          <Column
-            label="Col 3"
-            width={300}
-            dataKey="address"
-          />
-        </Table>,
-        document.getElementById('table')
-      );
+      <Griddle results={rows} tableClassName="table" showFilter={true}
+ showSettings={true} columns={["first_name", "last_name", "address", "city"]}
+resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={400} useFixedHeader={true} onRowClick={editContact}
+ />,
+      document.getElementById('table')
+      )
     }
 
+function editContact(event, row) {
 
-function rowGetter(rowIndex) {
-  return rows[rowIndex];
 }
