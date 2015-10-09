@@ -17,6 +17,7 @@ gem 'stripe'
 gem 'smartystreets'
 gem "twitter-bootstrap-rails"
 gem "react-rails"
+gem "browserify-rails"
 
 group :development, :test do
   gem 'pry'
