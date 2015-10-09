@@ -2,6 +2,7 @@ var React = require('react');
 var Griddle = require('griddle-react');
 var rows = "";
 
+function contacts() {
 $.ajax({
       url: "//api.fol.dev/contacts",
       dataType: 'json',
@@ -10,6 +11,7 @@ $.ajax({
         rowsFunction(data)
       }
     });
+  };
 
     function rowsFunction(data) {
       rows = data["contacts"];
@@ -23,6 +25,17 @@ resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={600} useFixedHeader={
       )
     }
 
+
 function editContact(event, row) {
 
 }
+
+$( "#link2" ).click(function() {
+  event.preventDefault();
+  clearDiv();
+  contacts();
+});
+
+function clearDiv() {
+  React.unmountComponentAtNode(table)
+  };

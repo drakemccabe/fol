@@ -7,10 +7,15 @@
     "griddle-react": "^0.2.14",
     "react": "^0.14.0",
     "react-data-components": "^0.5.0",
+    "react-dom": "^0.14.0",
+    "react-gmaps": "^0.4.2",
     "underscore": "^1.8.3"
   },
   "license": "MIT",
   "engines": {
     "node": ">= 0.10"
+  },
+  "devDependencies": {
+    "babelify": "^6.3.0"
   }
 }
