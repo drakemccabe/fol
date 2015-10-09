@@ -1,4 +1,6 @@
 class Contact < ActiveRecord::Base
+    scope :newest, -> { order(:created_at) }
+
     has_many :memberships
     has_many :interests
     has_many :donations

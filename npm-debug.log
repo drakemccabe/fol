@@ -1,0 +1,102 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.10.1
+3 info using node@v0.12.4
+4 verbose node symlink /usr/local/bin/node
+5 verbose readDependencies loading dependencies from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/package.json
+6 warn package.json browser@ No repository field.
+7 verbose install where, deps [ '/Users/dmccabe/Library/Application Support/Pow/Hosts/fol',
+7 verbose install   [ 'browserify',
+7 verbose install     'browserify-incremental',
+7 verbose install     'coffeeify',
+7 verbose install     'griddle-react',
+7 verbose install     'react',
+7 verbose install     'react-data-components',
+7 verbose install     'react-dom',
+7 verbose install     'react-gmaps',
+7 verbose install     'underscore',
+7 verbose install     'babelify' ] ]
+8 verbose install where, peers [ '/Users/dmccabe/Library/Application Support/Pow/Hosts/fol',
+8 verbose install   [] ]
+9 verbose installManyTop reading for lifecycle /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/package.json
+10 info preinstall browser@
+11 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/babelify/package.json
+12 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/browserify/package.json
+13 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/browserify-incremental/package.json
+14 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/coffeeify/package.json
+15 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/griddle-react/package.json
+16 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/npm-debug.log/package.json
+17 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react/package.json
+18 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-data-components/package.json
+19 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-dom/package.json
+20 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-gmaps/package.json
+21 verbose installManyTop reading scoped package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/underscore/package.json
+22 verbose readDependencies loading dependencies from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/package.json
+23 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/babelify/package.json
+24 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/browserify/package.json
+25 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/browserify-incremental/package.json
+26 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/coffeeify/package.json
+27 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/griddle-react/package.json
+28 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/npm-debug.log/package.json
+29 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react/package.json
+30 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-data-components/package.json
+31 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-dom/package.json
+32 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/react-gmaps/package.json
+33 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/underscore/package.json
+34 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/.bin/browserify/package.json
+35 verbose targetResolver reading package data from /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/.bin/browserifyinc/package.json
+36 verbose already installed skipping react-data-components@^0.5.0 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+37 verbose already installed skipping react-dom@^0.14.0 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+38 verbose already installed skipping react-gmaps@^0.4.2 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+39 verbose already installed skipping underscore@^1.8.3 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+40 verbose already installed skipping babelify@^6.3.0 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+41 verbose already installed skipping browserify@~> 10.2.4 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+42 verbose already installed skipping browserify-incremental@^3.0.1 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+43 verbose already installed skipping coffeeify@~> 0.6 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+44 verbose already installed skipping griddle-react@^0.2.14 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+45 verbose already installed skipping react@^0.14.0 /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+46 silly install resolved []
+47 info build /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+48 info linkStuff browser@
+49 silly linkStuff browser@ has /Users/dmccabe/Library/Application Support/Pow/Hosts as its parent node_modules
+50 verbose linkBins browser@
+51 verbose linkMans browser@
+52 verbose rebuildBundles browser@
+53 verbose rebuildBundles [ '.bin',
+53 verbose rebuildBundles   'babelify',
+53 verbose rebuildBundles   'browserify',
+53 verbose rebuildBundles   'browserify-incremental',
+53 verbose rebuildBundles   'coffeeify',
+53 verbose rebuildBundles   'griddle-react',
+53 verbose rebuildBundles   'npm-debug.log',
+53 verbose rebuildBundles   'react',
+53 verbose rebuildBundles   'react-data-components',
+53 verbose rebuildBundles   'react-dom',
+53 verbose rebuildBundles   'react-gmaps',
+53 verbose rebuildBundles   'underscore' ]
+54 verbose rebuild bundle /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/node_modules/npm-debug.log
+55 info install browser@
+56 info postinstall browser@
+57 info prepublish browser@
+58 verbose validateInstall loading /Users/dmccabe/Library/Application Support/Pow/Hosts/fol/package.json for validation
+59 verbose stack Error: The package react does not satisfy its siblings' peerDependencies requirements!
+59 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:125:32
+59 verbose stack     at /usr/local/lib/node_modules/npm/lib/install.js:267:7
+59 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:138:5
+59 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+59 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+59 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+59 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+59 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+59 verbose stack     at cb (/usr/local/lib/node_modules/npm/node_modules/slide/lib/async-map.js:47:24)
+59 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/read-installed/read-installed.js:251:14
+60 verbose cwd /Users/dmccabe/Library/Application Support/Pow/Hosts/fol
+61 error Darwin 14.0.0
+62 error argv "node" "/usr/local/bin/npm" "install"
+63 error node v0.12.4
+64 error npm  v2.10.1
+65 error code EPEERINVALID
+66 error peerinvalid The package react does not satisfy its siblings' peerDependencies requirements!
+66 error peerinvalid Peer griddle-react@0.2.14 wants react@>=0.12.0
+66 error peerinvalid Peer react-data-components@0.5.0 wants react@^0.13.0
+67 verbose exit [ 1, true ]

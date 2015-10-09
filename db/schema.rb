@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151007002128) do
+ActiveRecord::Schema.define(version: 20151009222916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,19 +27,21 @@ ActiveRecord::Schema.define(version: 20151007002128) do
   end
 
   create_table "contacts", force: :cascade do |t|
-    t.string  "first_name",  limit: 200
-    t.string  "last_name",   limit: 200
-    t.string  "address",     limit: 200
-    t.string  "city",        limit: 100
-    t.string  "state",       limit: 2
-    t.string  "zip",         limit: 16
-    t.string  "phone",       limit: 16
-    t.string  "email",       limit: 100
-    t.boolean "is_business"
-    t.boolean "is_family"
-    t.boolean "is_resident"
-    t.decimal "longitude",               precision: 10, scale: 6
-    t.decimal "latitude",                precision: 10, scale: 6
+    t.string   "first_name",  limit: 200
+    t.string   "last_name",   limit: 200
+    t.string   "address",     limit: 200
+    t.string   "city",        limit: 100
+    t.string   "state",       limit: 2
+    t.string   "zip",         limit: 16
+    t.string   "phone",       limit: 16
+    t.string   "email",       limit: 100
+    t.boolean  "is_business"
+    t.boolean  "is_family"
+    t.boolean  "is_resident"
+    t.decimal  "longitude",               precision: 10, scale: 6
+    t.decimal  "latitude",                precision: 10, scale: 6
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "correspondences", force: :cascade do |t|

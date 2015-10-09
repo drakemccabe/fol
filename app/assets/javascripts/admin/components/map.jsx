@@ -53,7 +53,7 @@ const App = React.createClass({
         height={'600px'}
         lat={coords.lat}
         lng={coords.lng}
-        zoom={14}
+        zoom={1}
         loadingMessage={'Loading'}
         onMapCreated={this.onMapCreated}>
         <Marker
@@ -74,6 +74,10 @@ const App = React.createClass({
 
             {markers.map(function(object, i){
                 return <Marker lat={markers[i]["latitude"]} lng={markers[i]["longitude"]} />;
+              })}
+
+            {markers.map(function(object, i){
+                return <InfoWindow lat={markers[i]["latitude"]} lng={markers[i]["longitude"]} content={markers[i]["first_name"]} />;
               })}
 
       </Gmaps>
