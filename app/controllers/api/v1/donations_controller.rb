@@ -1,5 +1,5 @@
 class Api::V1::DonationsController < ApplicationController
-  before_action :authenticate_with_token!
+  #before_action :authenticate_with_token!
   respond_to :json
 
   def show
@@ -7,7 +7,7 @@ class Api::V1::DonationsController < ApplicationController
   end
 
   def index
-    respond_with Donation.all.order(:created_at).limit(1000)
+    respond_with Donation.all.order(:created_at).limit(500)
   end
 
   def create
