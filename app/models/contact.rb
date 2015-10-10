@@ -1,4 +1,5 @@
 class Contact < ActiveRecord::Base
+
     has_many :memberships
     has_many :interests
     has_many :donations

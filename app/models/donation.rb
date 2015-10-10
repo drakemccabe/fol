@@ -5,7 +5,7 @@ class Donation < ActiveRecord::Base
   validates_numericality_of :amount, greater_than: 0.0
 
   after_create :add_member
-
+  
   private
 
   def add_member
