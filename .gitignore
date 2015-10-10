@@ -19,4 +19,4 @@ doc/
 .DS_Store
 .ENV
 /ruby/*
-/node_modules/*
+/node_modules

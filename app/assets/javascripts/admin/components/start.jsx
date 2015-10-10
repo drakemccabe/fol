@@ -1,6 +1,7 @@
 var React = require('react');
 var Griddle = require('griddle-react');
 var rows = "";
+var contact;
 
 function contacts() {
 $.ajax({
@@ -27,7 +28,7 @@ resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={600} useFixedHeader={
 
 
 function editContact(event, row) {
-
+  contact = row
 }
 
 $( "#link2" ).click(function() {
