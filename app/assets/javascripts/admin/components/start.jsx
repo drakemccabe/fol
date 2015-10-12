@@ -4,6 +4,11 @@ var rows = "";
 
 function contacts() {
 $.ajax({
+      type: "GET",
+      beforeSend: function (request)
+      {
+        request.setRequestHeader("authorization", $authkey);
+      },
       url: "//api.fol.dev/contacts",
       dataType: 'json',
       cache: true,
