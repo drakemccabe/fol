@@ -112,7 +112,7 @@ var Registration = React.createClass({
 
     return (
       <main>
-        <span className="progress-step">Step {this.state.step} </span>
+        <span className="progress-step">Adding Contact: Step {this.state.step} </span>
         <progress className="progress" style={style}></progress>
         {this.showStep()}
       </main>

@@ -22,6 +22,7 @@ var Controller = React.createClass({
       case 1:
         return <Registration />
       case 2:
+        console.log(this.props.contact);
         return <Registration2 />
     }
   },
