@@ -1,9 +1,6 @@
 class AdminsController < ApplicationController
   layout "admin"
 
-  def new
-  end
-
   def create
     user_password = params[:password]
     user_email = params[:email]
