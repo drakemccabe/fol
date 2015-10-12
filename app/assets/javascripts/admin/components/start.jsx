@@ -51,18 +51,40 @@ function clearDiv() {
   };
 
 
+function updateContact(){
+  $.ajax({
+        type: "PATCH",
+        beforeSend: function (request)
+        {
+          request.setRequestHeader("authorization", $authkey);
+        },
+        url: "//api.fol.dev/contacts/" + fieldValues.id,
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        data: JSON.stringify({first_name: fieldValues.first_name,
+                              last_name: fieldValues.last_name,
+                              email: fieldValues.email,
+                              phone: fieldValues.phone,
+                              address: fieldValues.address,
+                              city: fieldValues.city,
+                              state: fieldValues.state,
+                              zip: fieldValues.zipcode })
+      });
+    };
+
   var fieldValues = {
-    first_name     : null,
-    email    : null,
-    phone    : null,
-    last_name : null,
-    address   : null,
-    city      : null,
-    state     : null,
-    zipcode   : null,
-    amount    : null,
-    interest  : null,
-    note      : null
+    id            : null,
+    first_name    : null,
+    email         : null,
+    phone         : null,
+    last_name     : null,
+    address       : null,
+    city          : null,
+    state         : null,
+    zipcode       : null,
+    amount        : null,
+    interest      : null,
+    note          : null
   }
 
 
@@ -92,8 +114,8 @@ function clearDiv() {
     },
 
     submitRegistration: function() {
-    console.log(fieldValues);
-
+      fieldValues.id = this.props.contact.id
+      updateContact();
       this.nextStep()
     },
 
