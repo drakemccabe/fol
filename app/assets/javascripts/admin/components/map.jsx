@@ -7,9 +7,16 @@ const coords = {
 };
 
 var markers = "";
+$authkey = $('#tokendiv').attr('data-idtoken');
+
 
 function loadMapData() {
 $.ajax({
+      type: "GET",
+      beforeSend: function (request)
+      {
+        request.setRequestHeader("authorization", $authkey);
+      },
       url: "//api.fol.dev/contacts",
       dataType: 'json',
       cache: true,

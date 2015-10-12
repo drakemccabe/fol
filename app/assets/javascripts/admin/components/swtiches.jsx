@@ -11,16 +11,15 @@ var Controller = React.createClass({
     return { feature: 1 };
   },
 
-  componentWillMount: function () {
-    $.get("//api.fol.dev/contacts", function (contacts) {
-      this.setState(contacts);
-    }.bind(this));
-  },
+  // componentWillMount: function () {
+  //   $.get("//api.fol.dev/contacts", function (contacts) {
+  //     this.setState(contacts);
+  //   }.bind(this));
+  // },
 
   flipSwitch: function() {
     switch (this.props.feature) {
       case 1:
-        console.log(this.state.contacts)
         return <Registration />
       case 2:
         return <Registration2 />
