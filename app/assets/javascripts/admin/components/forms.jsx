@@ -1,26 +1,3 @@
-
-function newContactForm() {
-  React.render(
-    <div className="hidden">
-    <Registration />
-    </div>,
-    document.getElementById('table')
-  )
-}
-
-$( "#link5" ).click(function() {
-  event.preventDefault();
-  clearDiv();
-  newContactForm();
-});
-
-function clearDiv() {
-  React.unmountComponentAtNode(table)
-  };
-
-
-
-
 var fieldValues = {
   id            :null,
   first_name     : null,
