@@ -10,7 +10,7 @@ GoogleLineChart = React.createFactory( React.createClass(
     @drawCharts()
   drawCharts: ->
     data = google.visualization.arrayToDataTable(@props.data)
-    options = title: 'Sales per year'
+    options = title: 'Donations per year'
     chart = new google.visualization.LineChart(@refs.graphDiv.getDOMNode())
     chart.draw data, options
 ))
@@ -32,5 +32,5 @@ loadDonationChart: () ->
       callback: ->
         React.render GoogleLineChart(
           graphName: 'lineGraph'
-          data: [['Year', 'Items Sold'], ['2004', 20], ['2005', 35], ['2006', 25], ['2007', 50]]
+          data: [['Year', 'Donations'], ['2004', 20], ['2005', 35], ['2006', 25], ['2007', 50]]
         ), document.getElementById('table')
