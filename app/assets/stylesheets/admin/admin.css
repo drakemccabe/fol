@@ -4,6 +4,17 @@
 }
 
 
+#logoimg {
+  width:170px;
+  height: 70px;
+}
+
+#table {
+  height: 100%;
+}
+
+
+
 /*#table, #map {
   width: 100%;
   height: 100%;

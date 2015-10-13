@@ -60,7 +60,7 @@ const App = React.createClass({
         height={'600px'}
         lat={coords.lat}
         lng={coords.lng}
-        zoom={1}
+        zoom={10}
         loadingMessage={'Loading'}
         onMapCreated={this.onMapCreated}>
         <Marker

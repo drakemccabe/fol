@@ -46,7 +46,7 @@ $( "#link3" ).click(function() {
   )
 });
 
-$( "#link4" ).click(function() {
+$( "#link40" ).click(function() {
   event.preventDefault();
   clearDiv();
   React.render(

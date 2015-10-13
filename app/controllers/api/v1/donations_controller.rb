@@ -7,7 +7,7 @@ class Api::V1::DonationsController < ApplicationController
   end
 
   def index
-    respond_with Donation.all.order(:created_at).limit(500)
+    respond_with Donation.all.order(:created_at).limit(100)
   end
 
   def create
