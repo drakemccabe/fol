@@ -41,7 +41,9 @@ $( "#link3" ).click(function() {
   event.preventDefault();
   clearDiv();
   React.render(
-    <Controller feature={1}/>,
+    <div>
+    <Controller feature={1}/>
+    </div>,
     document.getElementById('table')
   )
 });

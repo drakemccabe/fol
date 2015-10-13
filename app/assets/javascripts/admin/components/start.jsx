@@ -446,10 +446,12 @@ $.ajax({
       donations = data["donations"];
 
       React.render(
+        <div>
       <Griddle results={donations} tableClassName="table" showFilter={true}
  showSettings={true} columns={["amount", "created_at", "contact.first_name", "contact.last_name" ]}
 resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={475} useFixedHeader={true}
- />,
+ />
+        </div>,
       document.getElementById('table')
       )
     }
