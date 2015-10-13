@@ -1,7 +1,7 @@
 {
   "name": "browser",
   "dependencies": {
-    "browserify": "~> 10.2.4",
+    "browserify": "^10.2.6",
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
     "griddle-react": "^0.2.14",
