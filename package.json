@@ -9,13 +9,14 @@
     "react-data-components": "^0.5.0",
     "react-dom": "^0.14.0",
     "react-gmaps": "^0.4.2",
-    "underscore": "^1.8.3"
+    "underscore": "^1.8.3",
+    "babelify": "^6.3.0"
   },
   "license": "MIT",
   "engines": {
     "node": ">= 0.12.7"
   },
   "devDependencies": {
-    "babelify": "^6.3.0"
+
   }
 }
