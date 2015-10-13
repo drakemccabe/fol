@@ -391,7 +391,7 @@ var Registration2 = React.createClass({
           {
             request.setRequestHeader("authorization", $authkey);
           },
-          url: "//api.fol.dev/donations",
+          url: "/donations",
           contentType: "application/json; charset=utf-8",
           dataType: 'json',
           data: JSON.stringify({amount: fieldValues.amount,
@@ -408,7 +408,7 @@ var Registration2 = React.createClass({
           {
             request.setRequestHeader("authorization", $authkey);
           },
-          url: "//api.fol.dev/interests",
+          url: "/interests",
           contentType: "application/json; charset=utf-8",
           dataType: 'json',
           data: JSON.stringify({interest: fieldValues.interest,
@@ -423,7 +423,7 @@ var Registration2 = React.createClass({
               {
                 request.setRequestHeader("authorization", $authkey);
               },
-              url: "//api.fol.dev/correspondences",
+              url: "/correspondences",
               contentType: "application/json; charset=utf-8",
               dataType: 'json',
               data: JSON.stringify({note: fieldValues.note,
@@ -439,7 +439,7 @@ var Registration2 = React.createClass({
                   {
                     request.setRequestHeader("authorization", $authkey);
                   },
-                  url: "//api.fol.dev/contacts",
+                  url: "/contacts",
                   contentType: "application/json; charset=utf-8",
                   dataType: 'json',
                   data: JSON.stringify({first_name: fieldValues.first_name,

@@ -53,7 +53,7 @@ var NewBlogPost = React.createClass({
           {
             request.setRequestHeader("authorization", $authkey);
           },
-          url: "//api.fol.dev/articles",
+          url: "/articles",
           contentType: "application/json; charset=utf-8",
           dataType: 'json',
           data: JSON.stringify({title: blogValues.title,

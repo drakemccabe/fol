@@ -17,7 +17,7 @@ $.ajax({
       {
         request.setRequestHeader("authorization", $authkey);
       },
-      url: "//api.fol.dev/contacts",
+      url: "/contacts",
       dataType: 'json',
       cache: true,
       success: function(data) {

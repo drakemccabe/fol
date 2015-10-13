@@ -12,7 +12,7 @@ var Controller = React.createClass({
   },
 
   // componentWillMount: function () {
-  //   $.get("//api.fol.dev/contacts", function (contacts) {
+  //   $.get("/contacts", function (contacts) {
   //     this.setState(contacts);
   //   }.bind(this));
   // },
