@@ -22,7 +22,6 @@ var Controller = React.createClass({
       case 1:
         return <Registration />
       case 2:
-        console.log(this.props.contact);
         return <Registration2 />
     }
   },
@@ -47,7 +46,7 @@ $( "#link3" ).click(function() {
   )
 });
 
-$( "#link4" ).click(function() {
+$( "#link40" ).click(function() {
   event.preventDefault();
   clearDiv();
   React.render(

@@ -1,6 +1,7 @@
 var React = require('react');
 var Griddle = require('griddle-react');
 var rows = "";
+var donations = "";
 
 function contacts() {
 $.ajax({
@@ -420,3 +421,41 @@ function updateContact(){
                                     contact_id: fieldValues.id })
             });
           };
+
+
+// Donations table
+
+
+function donationList() {
+$.ajax({
+      type: "GET",
+      beforeSend: function (request)
+      {
+        request.setRequestHeader("authorization", $authkey);
+      },
+      url: "//api.fol.dev/donations",
+      dataType: 'json',
+      cache: true,
+      success: function(data) {
+        donationRowsFunction(data)
+      }
+    });
+  };
+
+    function donationRowsFunction(data) {
+      donations = data["donations"];
+
+      React.render(
+      <Griddle results={donations} tableClassName="table" showFilter={true}
+ showSettings={true} columns={["amount", "created_at", "contact.first_name", "contact.last_name" ]}
+resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={600} useFixedHeader={true}
+ />,
+      document.getElementById('table')
+      )
+    }
+
+$( "#link4" ).click(function() {
+  event.preventDefault();
+  clearDiv();
+  donationList();
+});
