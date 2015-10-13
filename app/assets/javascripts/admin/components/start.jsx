@@ -68,7 +68,7 @@ function updateContact(){
                               address: fieldValues.address,
                               city: fieldValues.city,
                               state: fieldValues.state,
-                              zip: fieldValues.zipcode })
+                              zip: fieldValues.zip })
       });
     };
 
@@ -81,7 +81,7 @@ function updateContact(){
     address       : null,
     city          : null,
     state         : null,
-    zipcode       : null,
+    zip           : null,
     amount        : null,
     interest      : null,
     note          : null
@@ -121,8 +121,9 @@ function updateContact(){
 
 
     submitDetails: function() {
-    alert("taco")
-
+      addDonation();
+      addCorrespondence();
+      addInterest()
       this.nextStep()
     },
 
@@ -239,7 +240,7 @@ function updateContact(){
           <ul className="form-fields">
             <li className="form-footer">
               <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-              <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Add Contact</button>
+              <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Update Contact</button>
             </li>
           </ul>
         </div>
@@ -371,3 +372,51 @@ function updateContact(){
       )
     }
   })
+
+
+  function addDonation(){
+    $.ajax({
+          type: "POST",
+          beforeSend: function (request)
+          {
+            request.setRequestHeader("authorization", $authkey);
+          },
+          url: "//api.fol.dev/donations",
+          contentType: "application/json; charset=utf-8",
+          dataType: 'json',
+          data: JSON.stringify({amount: fieldValues.amount,
+                                contact_id: fieldValues.id,
+                                created_at: new Date().toJSON().slice(0,10) })
+        });
+      };
+
+
+  function addInterest(){
+    $.ajax({
+          type: "POST",
+          beforeSend: function (request)
+          {
+            request.setRequestHeader("authorization", $authkey);
+          },
+          url: "//api.fol.dev/interests",
+          contentType: "application/json; charset=utf-8",
+          dataType: 'json',
+          data: JSON.stringify({interest: fieldValues.interest,
+                                contact_id: fieldValues.id })
+        });
+      };
+
+      function addCorrespondence(){
+        $.ajax({
+              type: "POST",
+              beforeSend: function (request)
+              {
+                request.setRequestHeader("authorization", $authkey);
+              },
+              url: "//api.fol.dev/correspondences",
+              contentType: "application/json; charset=utf-8",
+              dataType: 'json',
+              data: JSON.stringify({note: fieldValues.note,
+                                    contact_id: fieldValues.id })
+            });
+          };

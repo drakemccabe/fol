@@ -22,6 +22,7 @@ function clearDiv() {
 
 
 var fieldValues = {
+  id            :null,
   first_name     : null,
   email    : null,
   phone    : null,
@@ -29,7 +30,7 @@ var fieldValues = {
   address   : null,
   city      : null,
   state     : null,
-  zipcode   : null,
+  zip   : null,
   amount    : null,
   interest  : null,
   note      : null
@@ -61,15 +62,16 @@ var Registration = React.createClass({
   },
 
   submitRegistration: function() {
-  console.log(fieldValues);
-
+    newContact();
     this.nextStep()
   },
 
 
   submitDetails: function() {
-  alert("taco")
-
+    addCorrespondence();
+    addInterest();
+    addDonation();
+    resetFieldValues();
     this.nextStep()
   },
 
@@ -198,7 +200,6 @@ var Success = React.createClass({
     return (
       <div>
         <h2>Successfully Registered!</h2>
-        <p>Please check your email <b>{this.props.fieldValues.email}</b> for a confirmation link to activate your account.</p>
       </div>
     )
   }
@@ -402,3 +403,82 @@ var Registration2 = React.createClass({
     )
   }
 })
+
+
+
+
+  function addDonation(){
+    $.ajax({
+          type: "POST",
+          beforeSend: function (request)
+          {
+            request.setRequestHeader("authorization", $authkey);
+          },
+          url: "//api.fol.dev/donations",
+          contentType: "application/json; charset=utf-8",
+          dataType: 'json',
+          data: JSON.stringify({amount: fieldValues.amount,
+                                contact_id: fieldValues.id,
+                                created_at: new Date().toJSON().slice(0,10) })
+        });
+      };
+
+
+  function addInterest(){
+    $.ajax({
+          type: "POST",
+          beforeSend: function (request)
+          {
+            request.setRequestHeader("authorization", $authkey);
+          },
+          url: "//api.fol.dev/interests",
+          contentType: "application/json; charset=utf-8",
+          dataType: 'json',
+          data: JSON.stringify({interest: fieldValues.interest,
+                                contact_id: fieldValues.id })
+        });
+      };
+
+      function addCorrespondence(){
+        $.ajax({
+              type: "POST",
+              beforeSend: function (request)
+              {
+                request.setRequestHeader("authorization", $authkey);
+              },
+              url: "//api.fol.dev/correspondences",
+              contentType: "application/json; charset=utf-8",
+              dataType: 'json',
+              data: JSON.stringify({note: fieldValues.note,
+                                    contact_id: fieldValues.id })
+            });
+          };
+
+
+          function newContact(){
+            $.ajax({
+                  type: "POST",
+                  beforeSend: function (request)
+                  {
+                    request.setRequestHeader("authorization", $authkey);
+                  },
+                  url: "//api.fol.dev/contacts",
+                  contentType: "application/json; charset=utf-8",
+                  dataType: 'json',
+                  data: JSON.stringify({first_name: fieldValues.first_name,
+                                        last_name: fieldValues.last_name,
+                                        email: fieldValues.email,
+                                        phone: fieldValues.phone,
+                                        address: fieldValues.address,
+                                        city: fieldValues.city,
+                                        state: fieldValues.state,
+                                        zip: fieldValues.zip }),
+                  success: function(response){
+                    fieldValues.id = response.id
+                  }
+                });
+              };
+
+              function resetFieldValues() {
+                for (var value in fieldValues) fieldValues[value] = null;
+              }
