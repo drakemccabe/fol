@@ -1,4 +1,4 @@
-<form action="/payments" method="POST" class="form-inline">
+<form action="/payments" method="POST" class="form-inline <%= mediaquery %>">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"

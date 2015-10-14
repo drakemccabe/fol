@@ -53,15 +53,15 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-5 intro" id="home">
-                        <h1>Friends of the Library</h1>
+                        <h1>Friends of <br class="title-break">the Library</h1>
                         <p>Your membership goes to support programs at the West Bridgewater Public Library such as summer reading programs, museum passes, Reading is Fundamental (RIF) – a Kindergarten through 5th grade children’s literacy program, as well as educational and cultural events around the library.</p>
                         <h2>Become a Member <small>join online</small></h2>
-                        <p> donations are tax deductible </p>
+                        <p class="text-center"> donations are tax deductible </p>
                         <div class="forms-in-group">
-                        <%= render "stripe", amount: "1500", label: " $15 ", name: "Short Story" %>
-                        <%= render "stripe", amount: "2500", label: " $25 ", name: "Novel" %>
-                        <%= render "stripe", amount: "5000", label: " $50 ", name: "Best Seller" %>
-                        <%= render "stripe", amount: "10000", label: "$100", name: "Lifetime" %>
+                        <%= render "stripe", amount: "1500", label: " $15 ", name: "Short Story", mediaquery: nil %>
+                        <%= render "stripe", amount: "2500", label: " $25 ", name: "Novel", mediaquery: nil %>
+                        <%= render "stripe", amount: "5000", label: " $50 ", name: "Best Seller", mediaquery: nil %>
+                        <%= render "stripe", amount: "10000", label: "$100", name: "Lifetime", mediaquery: "lastform" %>
                     </div>
 
       <%= yield %>
@@ -137,12 +137,12 @@
                                         <h4 class="modal-title" id="myModalLabel">Admin Account Login</h4>
                                       </div>
                                       <div class="modal-body">
-                                        <%= form_tag("/admins", method: "post") do %>
+                                        <%= form_tag("/admins", method: "post", class: "form-group") do %>
                                           <%= label_tag(:email, "Email") %>
                                           <%= text_field_tag(:email) %>
                                           <%= label_tag(:password, "Password") %>
                                           <%= password_field_tag(:password) %>
-                                          <%= submit_tag("login") %>
+                                          <%= submit_tag("login", class: "btn btn-default") %>
                                         <% end %>
                                       </div>
                                       <div class="modal-footer">
