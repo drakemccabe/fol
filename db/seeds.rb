@@ -1,6 +1,6 @@
 require "faker"
 
-1000.times do
+200.times do
   Contact.create(first_name: Faker::Name.first_name,
                  last_name: Faker::Name.last_name,
                  address: Faker::Address.street_address,
@@ -11,7 +11,9 @@ require "faker"
                  email: Faker::Internet.email,
                  is_business: [true, false].sample,
                  is_family: [true, false].sample,
-                 is_resident: [true, false].sample)
+                 is_resident: [true, false].sample,
+                 latitude: 42.0 + rand(0.05),
+                 longitude: -71.0 - rand(0.05))
 
   contact_id = Contact.all.last.id
 
@@ -42,19 +44,19 @@ require "faker"
   print "."
 end
 
-100.times do
+50.times do
 
   Article.create(title: Faker::Lorem.sentence,
                  category: ["fundraising", "charity", "media"].sample,
                  author: Faker::Name.name,
                  body: Faker::Lorem.paragraph(2, false, 4),
-                 image_url: "http://drakemccabe.com/assets/img/write1.jpg",
+                 image_url: "http://lorempixel.com/400/200/",
                  created_at: Faker::Date.backward(365))
 
   Event.create(name: Faker::Lorem.sentence,
                location: Faker::Address.street_address,
                description: Faker::Lorem.paragraph(1),
-               image_url: "http://drakemccabe.com/assets/img/write1.jpg",
+               image_url: "http://lorempixel.com/400/200/",
                event_date: Faker::Date.forward(365))
 
   print "."

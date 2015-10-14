@@ -1,8 +1,6 @@
 class PaymentsController < ApplicationController
 
   def index
-    @articles = Article.order(:created_at).limit(4)
-    @events = Event.order(:created_at).limit(3)
   end
 
   def create
@@ -17,12 +15,12 @@ class PaymentsController < ApplicationController
       donation = NewDonation.new(customer, params[:amount], charge)
       saved_donation = donation.add_donation!
 
-      Payment.create(token: params[:stripeToken],
-                     schedule: "false",
-                     donation_id: saved_donation.id,
-                     customer_id: customer.id)
+      Payment.create(token: params[:stripeToken].to_s,
+                     schedule: false,
+                     donation_id: Donation.last.id,
+                     customer_id: customer.id.to_s)
 
-     flash[:message] = "Thanks"
+     render :index
     else
       flash[:error] = charge.failure_message
     end

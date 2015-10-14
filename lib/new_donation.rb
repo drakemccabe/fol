@@ -6,7 +6,7 @@ class NewDonation
     @zip = customer.sources.data.first.address_zip
     @customer = customer
     @charge = charge
-    @amount = amount
+    @amount = amount.to_i / 100
   end
 
   def add_donation!
@@ -25,7 +25,7 @@ class NewDonation
   private
 
     def associate(address)
-      if address.nil?
+      if address.empty?
         association = Contact.where(address: @street)
       else
         association = Contact.where(address:
@@ -46,7 +46,7 @@ class NewDonation
     end
 
     def new_with_user_address(contact, address)
-      if contact.empty? && address.nil?
+      if contact.empty? && address.empty?
         new_contact = Contact.new(address: @address,
                                   city: @city,
                                   state: @state,
@@ -63,7 +63,7 @@ class NewDonation
     end
 
     def new_with_standardized_address(contact, address)
-      if contact.empty? && address != nil
+      if contact.empty? && address.any?
         new_contact = Contact.new(address: address.first.delivery_line_1,
                                   city: address.first.components.city_name,
                                   state: address.first.components.state_abbreviation,
