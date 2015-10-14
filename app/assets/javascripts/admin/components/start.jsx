@@ -200,7 +200,7 @@ function updateContact(){
               <input type="text" ref="phone" defaultValue={this.props.contactval.phone} />
             </li>
             <li className="form-footer">
-              <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+              <button className="btn -primary pull-right indigo" onClick={this.nextStep}>Save &amp; Continue</button>
             </li>
           </ul>
         </div>
@@ -241,7 +241,7 @@ function updateContact(){
           <ul className="form-fields">
             <li className="form-footer">
               <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-              <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Update Contact</button>
+              <button className="btn -primary pull-right indigo" onClick={this.props.submitRegistration}>Update Contact</button>
             </li>
           </ul>
         </div>
@@ -285,7 +285,7 @@ function updateContact(){
             </li>
             <li className="form-footer">
               <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-              <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+              <button className="btn -primary pull-right indigo" onClick={this.nextStep}>Save &amp; Continue</button>
             </li>
           </ul>
         </div>
@@ -330,7 +330,7 @@ function updateContact(){
             </li>
             <li className="form-footer">
               <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-              <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+              <button className="btn -primary pull-right indigo" onClick={this.nextStep}>Save &amp; Continue</button>
             </li>
           </ul>
         </div>
@@ -366,7 +366,7 @@ function updateContact(){
           <ul className="form-fields">
             <li className="form-footer">
               <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-              <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Submit Registration</button>
+              <button className="btn -primary pull-right indigo" onClick={this.props.submitRegistration}>Submit Registration</button>
             </li>
           </ul>
         </div>

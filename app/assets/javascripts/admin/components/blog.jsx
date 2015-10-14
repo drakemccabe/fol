@@ -33,7 +33,7 @@ var NewBlogPost = React.createClass({
             <input type="text" ref="body" defaultValue={this.props.blogValues.body} />
           </li>
           <li className="form-footer">
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Add Blog Post!</button>
+            <button className="btn -primary pull-right indigo" onClick={this.nextStep}>Add Blog Post!</button>
           </li>
         </ul>
       </div>
