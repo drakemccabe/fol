@@ -122,7 +122,7 @@ var AccountFields = React.createClass({
             <input type="text" ref="phone" defaultValue={this.props.fieldValues.phone} />
           </li>
           <li className="form-footer">
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+            <button className="btn -primary pull-right indigo" onClick={this.nextStep}>Save &amp; Continue</button>
           </li>
         </ul>
       </div>
@@ -163,7 +163,7 @@ var Confirmation = React.createClass({
         <ul className="form-fields">
           <li className="form-footer">
             <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Add Contact</button>
+            <button className="btn -primary pull-right indigo indigo" onClick={this.props.submitRegistration}>Add Contact</button>
           </li>
         </ul>
       </div>
@@ -207,7 +207,7 @@ var AddressFields = React.createClass({
           </li>
           <li className="form-footer">
             <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+            <button className="btn -primary pull-right indigo indigo" onClick={this.nextStep}>Save &amp; Continue</button>
           </li>
         </ul>
       </div>
@@ -252,7 +252,7 @@ var DataFields = React.createClass({
           </li>
           <li className="form-footer">
             <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.nextStep}>Save &amp; Continue</button>
+            <button className="btn -primary pull-right indigo indigo" onClick={this.nextStep}>Save &amp; Continue</button>
           </li>
         </ul>
       </div>
@@ -288,7 +288,7 @@ var Confirmation2 = React.createClass({
         <ul className="form-fields">
           <li className="form-footer">
             <button className="btn -default pull-left" onClick={this.props.previousStep}>Back</button>
-            <button className="btn -primary pull-right" onClick={this.props.submitRegistration}>Submit Registration</button>
+            <button className="btn -primary pull-right indigo indigo" onClick={this.props.submitRegistration}>Submit Registration</button>
           </li>
         </ul>
       </div>
