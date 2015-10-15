@@ -85,7 +85,7 @@ var NewBlogPost = React.createClass({
   }
 });
 
-$( "#link6" ).click(function() {
+$( "#link5" ).click(function() {
   event.preventDefault();
   clearDiv()
   React.render(
