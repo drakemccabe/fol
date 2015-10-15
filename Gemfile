@@ -18,6 +18,7 @@ gem 'smartystreets'
 gem "twitter-bootstrap-rails"
 gem "react-rails"
 gem "browserify-rails"
+gem 'faker'
 
 group :development, :test do
   gem 'pry'

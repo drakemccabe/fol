@@ -44,7 +44,7 @@ require "faker"
   print "."
 end
 
-50.times do
+20.times do
 
   Article.create(title: Faker::Lorem.sentence,
                  category: ["fundraising", "charity", "media"].sample,
@@ -57,7 +57,7 @@ end
                location: Faker::Address.street_address,
                description: Faker::Lorem.paragraph(1),
                image_url: "http://lorempixel.com/400/200/",
-               event_date: Faker::Date.forward(365))
+               event_date: Faker::Time.between(DateTime.now + 10, DateTime.now))
 
   print "."
 end
