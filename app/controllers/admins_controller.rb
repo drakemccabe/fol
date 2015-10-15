@@ -1,6 +1,10 @@
 class AdminsController < ApplicationController
   layout "admin"
 
+  def new
+    render('articles/_login', layout: 'layouts/login')
+  end
+
   def create
     user_password = params[:password]
     user_email = params[:email]
@@ -8,7 +12,7 @@ class AdminsController < ApplicationController
 
     unless user.nil?
       if user.valid_password? user_password
-        sign_in user, store: false
+        sign_in user, store: true
         user.generate_authentication_token!
         user.save
         render :index, locals: { token: user.auth_token }

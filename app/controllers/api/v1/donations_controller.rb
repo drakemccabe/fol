@@ -1,5 +1,5 @@
 class Api::V1::DonationsController < ApplicationController
-  #before_action :authenticate_with_token!
+  before_action :authenticate_with_token!
   respond_to :json
 
   def show
