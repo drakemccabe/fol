@@ -131,33 +131,9 @@
                               <a href="mailto:info@wblibraryfriends.org">info@wblibraryfriends.org</a>
                           </li>
                           <li>
-                            <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+                            <a href="http://api.fol.dev/admins/new">
                                   Admin Login
-                                </button>
-
-                                <!-- Modal -->
-                                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                                  <div class="modal-dialog" role="document">
-                                    <div class="modal-content">
-                                      <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Admin Account Login</h4>
-                                      </div>
-                                      <div class="modal-body">
-                                        <%= form_tag("/admins", method: "post", class: "form-group") do %>
-                                          <%= label_tag(:email, "Email") %>
-                                          <%= text_field_tag(:email) %>
-                                          <%= label_tag(:password, "Password") %>
-                                          <%= password_field_tag(:password) %>
-                                          <%= submit_tag("login", class: "btn btn-default") %>
-                                        <% end %>
-                                      </div>
-                                      <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Exit</button>
-                                      </div>
-                                    </div>
-                                  </div>
-                                </div>
+                                </a>
                             </li>
                       </ul>
                   </div>
