@@ -5,7 +5,31 @@
 	<body>
 			 <header>
 					 <nav class="indigo top-nav">
+						 <ul id="nav-mobile" class="rightmenu right">
+							 <li class="bold">
+									<a href="#" id="link1" class="waves-effect waves-teal">Contacts by Location</a>
+							</li>
+							<li class="bold">
+									<a href="#" id="link2" class="waves-effect waves-teal">Contact List</a>
+							</li>
+							<li class="bold">
+								 <a href="#" id="link3" class="waves-effect waves-teal">Add a Contact</a>
+						 </li>
+						 <li class="bold">
+								 <a href="#" id="link4" class="waves-effect waves-teal">Donation List</a>
+						 </li>
+						 <li class="bold">
+								 <a href="#" id="link5" class="waves-effect waves-teal">Add Blog Post</a>
+						 </li>
+						 <li class="bold">
+								 <a href="#" id="link6" class="waves-effect waves-teal">Add New Event</a>
+						 </li>
+						 <li class="bold">
+								<a href="/" class="waves-effect waves-teal">Log Out</a>
+						</li>
+						 </ul>
 							 <div class="container">
+
 									 <div class="nav-wrapper">
 									 </div>
 							 </div>
@@ -13,31 +37,28 @@
 					 <div class="container">
 							 <a href="#" data-activates="nav-mobile" class="button-collapse top-nav full"></a>
 					 </div>
-					 <ul id="nav-mobile" class="side-nav fixed" style="width: 240px;">
+					 <ul id="nav-mobile" class="side-nav fixed" style="width: 440px;">
 							 <li class="logo">
 									 <a id="logo-container" href="#" class="brand-logo">
 										 <img  id="logoimg" src="http://www.wblibraryfriends.org/wp-content/uploads/2015/06/cropped-fol-new.png" class="brand-img img-responsive">
 								 </a>
 									 </a>
 							 </li>
-							 <li class="bold">
-									 <a href="" id="link1" class="waves-effect waves-teal">Contacts by Location</a>
-							 </li>
-							 <li class="bold">
-									 <a href="#" id="link2" class="waves-effect waves-teal">Contact List</a>
-							 </li>
-							 <li class="bold">
-									<a href="#" id="link3" class="waves-effect waves-teal">Add a Contact</a>
+							<li>
+								<div id="sidebar1" class="sidebarbox"></div>
 							</li>
-							<li class="bold">
-									<a href="#" id="link4" class="waves-effect waves-teal">Donation List</a>
+							<li>
+								<p class="center-align"><%= stats.last_month_donation_count %> donations, averaging $<%= stats.last_month_donation_average %>, totaling $<%= stats.last_month_donation_sum %>.</p>
 							</li>
-							<li class="bold">
-									<a href="#" id="link5" class="waves-effect waves-teal">Add Blog Post</a>
+							<li>
+								<div id="sidebar2" class="sidebarbox"></div>
+							</li>
+							<li>
+								<p class="center-align"><%= stats.last_year_donation_count %> donations, averaging $<%= stats.last_year_donation_average %>, totaling $<%= stats.last_year_donation_sum %>.</p>
 							</li>
 							 <li class="no-padding">
 									 <ul class="collapsible collapsible-accordion">
-</ul>
+									</ul>
 							 </li>
 					 </ul>
 					 <div id="tokendiv" data-idtoken="<%= token %>"></div>
@@ -55,18 +76,6 @@
 					 </div>
 			 </div>
 	 </main>
-	 <!-- <footer class="page-footer">
-			 <div class="container">
-					 <div class="row">
-					 </div>
-			 </div>
-			 <div class="footer-copyright">
-					 <div class="container">            © 2015 WBFOL
-							 <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
-					 </div>
-			 </div>
-	 </footer> -->
-
     <%= stylesheet_link_tag    'admin-bundle', media: 'all' %>
     <%= javascript_include_tag 'admin-bundle' %>
     <%= csrf_meta_tags %>

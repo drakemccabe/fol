@@ -24,8 +24,8 @@ $.ajax({
 
       React.render(
       <Griddle results={rows} tableClassName="table" showFilter={true}
- showSettings={true} columns={["id", "first_name", "last_name", "address", "city"]}
-resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={475} useFixedHeader={true} onRowClick={editContact}
+ showSettings={true} columns={["id", "first_name", "last_name", "address"]}
+resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={700} useFixedHeader={true} onRowClick={editContact}
  />,
       document.getElementById('table')
       )
@@ -449,7 +449,7 @@ $.ajax({
         <div>
       <Griddle results={donations} tableClassName="table" showFilter={true}
  showSettings={true} columns={["amount", "created_at", "contact.first_name", "contact.last_name" ]}
-resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={475} useFixedHeader={true}
+resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={700} useFixedHeader={true}
  />
         </div>,
       document.getElementById('table')

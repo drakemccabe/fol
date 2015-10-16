@@ -1,6 +1,7 @@
 {
   "name": "browser",
   "dependencies": {
+    "babelify": "^6.3.0",
     "browserify": "^10.2.6",
     "browserify-incremental": "^3.0.1",
     "coffeeify": "~> 0.6",
@@ -9,14 +10,12 @@
     "react-data-components": "^0.5.0",
     "react-dom": "^0.14.0",
     "react-gmaps": "^0.4.2",
-    "underscore": "^1.8.3",
-    "babelify": "^6.3.0"
+    "react-highcharts": "^2.1.0",
+    "underscore": "^1.8.3"
   },
   "license": "MIT",
   "engines": {
     "node": ">= 0.12.7"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }
