@@ -15,7 +15,7 @@ class AdminsController < ApplicationController
         sign_in user, store: true
         user.generate_authentication_token!
         user.save
-        render :index, locals: { token: user.auth_token }
+        render :index, locals: { token: user.auth_token, stats: Stats.new }
       else
         flash[:notice] = "Invalid email or password"
       end

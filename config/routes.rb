@@ -19,6 +19,7 @@ Rails.application.routes.draw do
      resources :events, only: [:show, :index, :create, :update, :destroy]
      resources :interests, only: [:show, :index, :create, :update, :destroy]
      resources :correspondences, only: [:show, :index, :create, :update, :destroy]
+     resources :stats, only: [:index, :show]
    end
  end
 end

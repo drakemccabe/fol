@@ -1,27 +1,34 @@
 #databox {
     height: 900px;
-    float: right;
+    margin-left: 440px;
+    margin-right: auto;
 }
-
-.top-nav {
-  color: purple;
-}
-
-body {
-
-}
-
 
 #logoimg {
   width:170px;
   height: 70px;
 }
 
+.logo {
+  background-color: #d3d3d3;
+}
+
 #table {
   height: 100%;
 }
 
+.sidebarbox {
+  width: 100%;
+}
 
+.rightmenu ul {
+  float: right;
+}
+
+.nav-wrapper {
+  float: right;
+  margin-left: 70px;
+}
 
 /*#table, #map {
   width: 100%;

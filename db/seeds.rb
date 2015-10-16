@@ -23,7 +23,7 @@ require "faker"
   end
 
   (0..10).to_a.sample.times do
-    Donation.create(amount: Faker::Commerce.price,
+    Donation.create(amount: rand(5.0..500.0).round(2),
                     created_at: Faker::Date.backward(200),
                     contact_id: contact_id)
   end
