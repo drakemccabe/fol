@@ -48,13 +48,13 @@
 								<div id="sidebar1" class="sidebarbox"></div>
 							</li>
 							<li>
-								<p class="center-align"><%= stats.last_month_donation_count %> donations, averaging $<%= stats.last_month_donation_average %>, totaling $<%= stats.last_month_donation_sum %>.</p>
+								<p class="center-align"><%= number_with_delimiter(stats.last_month_donation_count) %> donations, averaging $<%= number_with_delimiter(stats.last_month_donation_average) %>, totaling $<%= number_with_delimiter(stats.last_month_donation_sum) %>.</p>
 							</li>
 							<li>
 								<div id="sidebar2" class="sidebarbox"></div>
 							</li>
 							<li>
-								<p class="center-align"><%= stats.last_year_donation_count %> donations, averaging $<%= stats.last_year_donation_average %>, totaling $<%= stats.last_year_donation_sum %>.</p>
+								<p class="center-align"><%= number_with_delimiter(stats.last_year_donation_count) %> donations, averaging $<%= number_with_delimiter(stats.last_year_donation_average) %>, totaling $<%= number_with_delimiter(stats.last_year_donation_sum) %>.</p>
 							</li>
 							 <li class="no-padding">
 									 <ul class="collapsible collapsible-accordion">
