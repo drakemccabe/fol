@@ -7,7 +7,7 @@ class Api::V1::ContactsController < ApplicationController
   end
 
   def index
-    respond_with Contact.all.limit(50)
+    respond_with Contact.all
   end
 
   def create
