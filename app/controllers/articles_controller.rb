@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.order(:created_at).limit(4).reverse_order
-    @events = Event.order(:created_at).limit(3).reverse_order
+    @events = Event.where("event_date > ?", Date.today).order(:event_date).limit(3)
   end
 
   def show
