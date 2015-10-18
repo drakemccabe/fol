@@ -15,6 +15,8 @@ View the [demo production site](www.libraryfriendsdemo.com), running on Heroku.
 * input ```4242424242424242``` as card number and ```999``` as security code to test payments.
 * use email: ```demo@demo.com``` and password: ```demopassword``` to login to the admin area (button in footer)
 
+![application backend](http://drakemccabe.com/assets/img/fol2.gif)
+
 ## Developing Locally
 
 1. ```curl get.pow.cx | sh```
