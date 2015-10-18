@@ -1,6 +1,8 @@
 # Friends of the Library
 Friends of the Library (FOL) is an app for small nonprofit organizations to accept donations, connect with their audience and improve their marketing with data. Volunteers can track contacts, view donation data, make edits, and perform data entry all on one page.
 
+![front end](http://www.drakemccabe.com/assets/img/fol3.png)
+
 ## Features
 
 * RESTful API, versioned, on subdomain, and built on Ruby on Rails with user authenticiation.
@@ -11,7 +13,7 @@ Friends of the Library (FOL) is an app for small nonprofit organizations to acce
 
 ## Demo
 
-View the [demo production site](www.libraryfriendsdemo.com), running on Heroku.
+View the [demo production site](http://www.libraryfriendsdemo.com), running on Heroku.
 * input ```4242424242424242``` as card number and ```999``` as security code to test payments.
 * use email: ```demo@demo.com``` and password: ```demopassword``` to login to the admin area (button in footer)
 
