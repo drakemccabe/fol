@@ -11,8 +11,8 @@ describe Api::V1::DonationsController do
 
     it "returns json info on a single donation" do
       donation_response = json_response
-      expect(donation_response[:amount]).to eql @donation.amount
-      expect(donation_response[:contact_id]).to eql @donation.contact_id
+      expect(donation_response[:donation][:amount]).to eql @donation.amount
+      expect(donation_response[:donation][:contact_id]).to eql @donation.contact_id
     end
 
     it { should respond_with 200 }
@@ -47,7 +47,7 @@ describe Api::V1::DonationsController do
 
       it "returns the donation just created in json" do
         donation_response = json_response
-        expect(donation_response[:amount]).to eql @donation_attributes[:amount]
+        expect(donation_response[:donation][:amount]).to eql @donation_attributes[:amount]
       end
 
       it { should respond_with 201 }

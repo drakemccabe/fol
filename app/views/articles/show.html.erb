@@ -1,0 +1,11 @@
+<div class="container text-center">
+  <div class="col-xs-12" style="height:80px;"></div>
+  <div class="row">
+      <div class="col-md-8">
+          <h2 class="text-left"><%= @article.title %></h2>
+          <p class="text-muted text-left">By <%= @article.author %></p>
+          <p class="text-left"><%= @article.body %></p>
+      </div>
+    <div class="col-md-4">
+      <img src="<%= @article.image_url %>" width="300px"/>
+    </div>
