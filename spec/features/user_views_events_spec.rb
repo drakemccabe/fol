@@ -48,7 +48,7 @@ feature 'user visits main page', %{
     expect(event_names[1][0..20]).to_not appear_before(event_names[0][0..20])
   end
 
-  scenario 'Events should be sorted from newest to oldest' do
+  scenario 'Events older than the current date should not appear' do
 
     event = FactoryGirl.create(:event)
     event.update_attribute(:event_date, Date.today - 1)
