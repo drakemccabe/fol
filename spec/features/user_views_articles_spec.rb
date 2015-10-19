@@ -6,8 +6,8 @@ feature 'user visits main page', %{
   So that I can read about the organization.
 } do
   # Acceptance Criteria
-  # [] When a user visits the main page, they should see 4 or less articles
-  # [] Articles should be sorted from newest to oldest.
+  # [x] When a user visits the main page, they should see 4 or less articles
+  # [x] Articles should be sorted from newest to oldest.
   scenario 'main page contains only 4 or less articles' do
 
     article_ids = []

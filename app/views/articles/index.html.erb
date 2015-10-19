@@ -44,7 +44,7 @@
                        <% @events.each do |event| %>
                        <div class="event"> <%= event.event_date.strftime("%m/%d") %> </div>
                        <div class="eventdesc">
-                           <div class="eventdesc2"><a class="whitelink" href="/events/<%= event.id %>"><h5> <%= truncate(event.name, length: 25) %> </h5></a>
+                           <div id="event-<%= event.id %>" class="eventdesc2"><a class="whitelink" href="/events/<%= event.id %>"><h5> <%= truncate(event.name, length: 25) %> </h5></a>
                              <%= event.event_date.strftime("%I:%M%p") %> <br>
                              <%= truncate(event.description, length: 25) %>
 
@@ -66,7 +66,7 @@
            <div class="project-wrapper">
 
              <% @articles.each do |article| %>
-               <div class="col-md-3 col-sm-6 project">
+               <div id="blogpost-<%= article.id %>" class="col-md-3 col-sm-6 project">
                    <div class="background-image-holder">
                        <img class="background-image" alt="Background Image" src="<%= article.image_url %>">
                    </div>
