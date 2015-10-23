@@ -23,6 +23,7 @@ gem 'mail_form'
 group :development, :test do
   gem 'pry'
   gem 'dotenv-rails'
+  gem 'selenium-webdriver'
 end
 
 group :development do
