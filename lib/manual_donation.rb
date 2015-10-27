@@ -1,2 +1,0 @@
-class ManualDonation < NewDonation
-end

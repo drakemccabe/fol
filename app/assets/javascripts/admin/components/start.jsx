@@ -19,17 +19,17 @@ $.ajax({
     });
   };
 
-    function rowsFunction(data) {
-      rows = data["contacts"];
+function rowsFunction(data) {
+  rows = data["contacts"];
 
-      React.render(
+  React.render(
       <Griddle results={rows} tableClassName="table" showFilter={true}
  showSettings={true} columns={["id", "first_name", "last_name", "address"]}
 resultsPerPage={5} enableInfiniteScroll={true} bodyHeight={700} useFixedHeader={true} onRowClick={editContact}
  />,
       document.getElementById('table')
       )
-    }
+}
 
 
 function editContact(event, row) {

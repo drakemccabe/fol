@@ -1,4 +1,3 @@
-
 var Controller = React.createClass({
   getInitialState: function(){
     return {
@@ -6,16 +5,9 @@ var Controller = React.createClass({
     }
   },
 
-
   getDefaultProps: function () {
     return { feature: 1 };
   },
-
-  // componentWillMount: function () {
-  //   $.get("/contacts", function (contacts) {
-  //     this.setState(contacts);
-  //   }.bind(this));
-  // },
 
   flipSwitch: function() {
     switch (this.props.feature) {
@@ -27,14 +19,12 @@ var Controller = React.createClass({
   },
 
   render: function() {
-
-
-  return (
-    <div>
-      {this.flipSwitch()}
-    </div>
-  )
-}
+    return (
+      <div>
+        {this.flipSwitch()}
+      </div>
+    )
+  }
 })
 
 $( "#link3" ).click(function() {
