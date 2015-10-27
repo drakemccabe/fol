@@ -1,5 +1,4 @@
-import React from 'react';
-import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
+import React from 'react'; import {Gmaps, Marker, InfoWindow, Circle} from 'react-gmaps';
 
 const coords = {
   lat: 42.018989,
@@ -8,7 +7,6 @@ const coords = {
 
 var markers = "";
 $authkey = $('#tokendiv').attr('data-idtoken');
-
 
 function loadMapData() {
 $.ajax({
@@ -26,10 +24,10 @@ $.ajax({
     });
   };
 
-  function markersFunction(data) {
-    markers = data["contacts"];
-    Run();
-  }
+function markersFunction(data) {
+  markers = data["contacts"];
+  Run();
+}
 
 
 const App = React.createClass({

@@ -75,8 +75,8 @@ var Registration = React.createClass({
                               previousStep={this.previousStep}
                               saveValues={this.saveValues} />
 
-        case 5:
-          return <Confirmation2 fieldValues={fieldValues}
+       case 5:
+        return <Confirmation2 fieldValues={fieldValues}
                                 previousStep={this.previousStep}
                                 submitRegistration={this.submitDetails} />
       case 6:
@@ -170,7 +170,6 @@ var Confirmation = React.createClass({
     )
   }
 })
-
 
 var Success = React.createClass({
   render: function() {
@@ -329,8 +328,6 @@ var Registration2 = React.createClass({
 
 
   submitDetails: function() {
-  alert("taco")
-
     this.nextStep()
   },
 
@@ -381,81 +378,62 @@ var Registration2 = React.createClass({
   }
 })
 
+function addDonation(){
+  $.ajax({
+        type: "POST",
+        beforeSend: function (request)
+        {
+          request.setRequestHeader("authorization", $authkey);
+        },
+        url: "/donations",
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        data: JSON.stringify({amount: fieldValues.amount,
+                              contact_id: fieldValues.id,
+                              created_at: new Date().toJSON().slice(0,10) })
+  });
+};
 
 
-
-  function addDonation(){
-    $.ajax({
-          type: "POST",
-          beforeSend: function (request)
-          {
-            request.setRequestHeader("authorization", $authkey);
-          },
-          url: "/donations",
-          contentType: "application/json; charset=utf-8",
-          dataType: 'json',
-          data: JSON.stringify({amount: fieldValues.amount,
-                                contact_id: fieldValues.id,
-                                created_at: new Date().toJSON().slice(0,10) })
-        });
-      };
+function addInterest(){
+  $.ajax({
+        type: "POST",
+        beforeSend: function (request)
+        {
+          request.setRequestHeader("authorization", $authkey);
+        },
+        url: "/interests",
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        data: JSON.stringify({interest: fieldValues.interest,
+                              contact_id: fieldValues.id })
+      });
 
 
-  function addInterest(){
-    $.ajax({
-          type: "POST",
-          beforeSend: function (request)
-          {
-            request.setRequestHeader("authorization", $authkey);
-          },
-          url: "/interests",
-          contentType: "application/json; charset=utf-8",
-          dataType: 'json',
-          data: JSON.stringify({interest: fieldValues.interest,
-                                contact_id: fieldValues.id })
-        });
-      };
+function newContact(){
+  $.ajax({
+        type: "POST",
+        beforeSend: function (request)
+        {
+          request.setRequestHeader("authorization", $authkey);
+        },
+        url: "/contacts",
+        contentType: "application/json; charset=utf-8",
+        dataType: 'json',
+        data: JSON.stringify({first_name: fieldValues.first_name,
+                              last_name: fieldValues.last_name,
+                              email: fieldValues.email,
+                              phone: fieldValues.phone,
+                              address: fieldValues.address,
+                              city: fieldValues.city,
+                              state: fieldValues.state,
+                              zip: fieldValues.zip }),
+        success: function(response){
+          fieldValues.id = response.id
+        }
+      });
+    };
 
-      function addCorrespondence(){
-        $.ajax({
-              type: "POST",
-              beforeSend: function (request)
-              {
-                request.setRequestHeader("authorization", $authkey);
-              },
-              url: "/correspondences",
-              contentType: "application/json; charset=utf-8",
-              dataType: 'json',
-              data: JSON.stringify({note: fieldValues.note,
-                                    contact_id: fieldValues.id })
-            });
-          };
-
-
-          function newContact(){
-            $.ajax({
-                  type: "POST",
-                  beforeSend: function (request)
-                  {
-                    request.setRequestHeader("authorization", $authkey);
-                  },
-                  url: "/contacts",
-                  contentType: "application/json; charset=utf-8",
-                  dataType: 'json',
-                  data: JSON.stringify({first_name: fieldValues.first_name,
-                                        last_name: fieldValues.last_name,
-                                        email: fieldValues.email,
-                                        phone: fieldValues.phone,
-                                        address: fieldValues.address,
-                                        city: fieldValues.city,
-                                        state: fieldValues.state,
-                                        zip: fieldValues.zip }),
-                  success: function(response){
-                    fieldValues.id = response.id
-                  }
-                });
-              };
-
-              function resetFieldValues() {
-                for (var value in fieldValues) fieldValues[value] = null;
-              }
+function resetFieldValues() {
+  for (var value in fieldValues) fieldValues[value] = null;
+}
