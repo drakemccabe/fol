@@ -19,6 +19,7 @@ gem "twitter-bootstrap-rails"
 gem "react-rails"
 gem "browserify-rails"
 gem 'mail_form'
+gem 'airtable'
 
 group :development, :test do
   gem 'pry'
