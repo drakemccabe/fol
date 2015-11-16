@@ -33,6 +33,7 @@ class Contact < ActiveRecord::Base
                                     "City" => city,
                                     "State" => state,
                                     "Zipcode" => zipcode)
+
       send = table.create(record)
       self.airtable_id = send.id
       self.save

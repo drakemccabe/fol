@@ -4,7 +4,7 @@ class Donation < ActiveRecord::Base
   validates_presence_of :amount, :created_at, :contact_id
   validates_numericality_of :amount, greater_than: 0.0
 
-  after_create :add_member, :send_to_airtable
+  after_create :send_to_airtable, :add_member
 
   private
 
@@ -27,10 +27,11 @@ class Donation < ActiveRecord::Base
   def send_to_airtable
     amount = self.amount
     date = self.created_at
+    id = self.contact.airtable_id
     client = Airtable::Client.new(ENV['AIRTABLE'])
     table = client.table("appxOPxNHD50YNXD5", "Donations")
     record = Airtable::Record.new("Amount" => amount,
-                                  "From Contact" => ["rece2qLEXqQ1ICtYe"],
+                                  "From Contact" => [id],
                                    " Date of Donation" => date,
                                    "Thank You Sent?" => true)
     table.create(record)
@@ -42,7 +43,7 @@ class Donation < ActiveRecord::Base
     client = Airtable::Client.new(ENV['AIRTABLE'])
     table = client.table("appxOPxNHD50YNXD5", "Contacts")
     record = table.find(id)
-    record['Member Until'] = exp_date
+    record[:until] = "2015-11-10"
     table.update(record)
   end
 
@@ -51,7 +52,7 @@ class Donation < ActiveRecord::Base
     client = Airtable::Client.new(ENV['AIRTABLE'])
     table = client.table("appxOPxNHD50YNXD5", "Contacts")
     record = table.find(id)
-    record['Lifetime?'] = true
+    record[:lifetime] = true
     table.update(record)
   end
 end
