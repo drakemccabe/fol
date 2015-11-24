@@ -8,11 +8,11 @@ class PaymentsController < ApplicationController
                                        email: params[:stripeEmail],
                                        description: "Friends of the Library Membership")
 
-    charge = Stripe::Charge.create(amount: params[:amount],
+    charge = Stripe::Charge.create(amount: params[:amount].to_i * 100,
                                    currency: "usd",
                                    customer: customer.id)
     if charge.paid
-      donation = NewDonation.new(customer, params[:amount], charge)
+      donation = NewDonation.new(customer, params[:amount].to_i * 100, charge)
       saved_donation = donation.add_donation!
 
       Payment.create(token: params[:stripeToken].to_s,

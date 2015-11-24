@@ -39,6 +39,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.3.8)
+    airtable (0.0.4)
+      httparty
     arel (6.0.3)
     awesome_print (1.6.1)
     babel-source (5.8.26)
@@ -287,6 +289,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
+  airtable
   browserify-rails
   capybara
   coffee-rails (~> 4.1.0)

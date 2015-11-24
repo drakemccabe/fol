@@ -1,15 +1,26 @@
-<form action="/payments" method="POST" class="form-inline <%= mediaquery %>">
+
+<script type="text/javascript">
+    $(function() {
+        $('.donate-button').click(function(event) {
+            var amount = $('#custom-donation-amount').val();
+            $('.stripe-button').attr('data-amount', amount * 100)
+        });
+    });
+</script>
+
+<form action="/payments" method="POST">
   <script
-    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>"
+    src="https://checkout.stripe.com/checkout.js"
+    class="stripe-button" data-image="images/button.png"
+    data-key="<%=ENV['STRIPE_PUBLISHABLE_KEY']%>"
+    data-label="BECOME A MEMBER"
+    data-description="Friends of the Library"
     data-image="http://www.wblibraryfriends.org/wp-content/uploads/2015/06/fol.png"
     data-name="Friends of the Library"
     data-description="West Bridgewater, MA"
-    data-amount="<%= amount %>"
     data-locale="auto"
     data-billing-address="true"
-    data-label="<%= label %>">
+    data-amount="0">
   </script>
-  <label> <%= name %> </label>
-  <input type="hidden" name="amount" value="<%= amount %>">
+  <input type="number" id="custom-donation-amount" name="amount" placeholder="$50.00" min="0" step="10.00 " />
 </form>
