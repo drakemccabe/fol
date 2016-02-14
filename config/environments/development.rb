@@ -38,7 +38,6 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.react.variant = :development
 
   #mail settings
   # to view emails generated in development:

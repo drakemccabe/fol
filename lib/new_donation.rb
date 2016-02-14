@@ -12,14 +12,15 @@ class NewDonation
   def add_donation!
     address = normalize_address
     contact = associate(address)
-    new_with_user_address(contact, address)
-    new_with_standardized_address(contact, address)
     if contact.exists?
       Donation.create(amount: @amount,
                       contact_id: contact.first.id,
                       stripe_token: @charge.id,
                       created_at: Date.today)
+      return
     end
+    new_with_user_address(contact, address)
+    new_with_standardized_address(contact, address)
   end
 
   private

@@ -16,8 +16,6 @@ gem 'simple_form'
 gem 'stripe'
 gem 'smartystreets'
 gem "twitter-bootstrap-rails"
-gem "react-rails"
-gem "browserify-rails"
 gem 'mail_form'
 gem 'airtable'
 

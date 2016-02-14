@@ -39,8 +39,6 @@ module Fol
       g.helper = false
    end
 
-    config.react.addons = true
-
    config.autoload_paths += %W(\#{config.root}/lib)
    # load everything in the 'lib' folder
     config.autoload_paths += Dir["#{config.root}/lib/**/"]
